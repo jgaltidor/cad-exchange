@@ -1,0 +1,738 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>class ProeXMLParser in psconv.pxmlparser</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.7.final)" name="generator"></meta><link href="../../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../../script.js"></script>
+        </head>
+        <body onload="init()">
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scala 2</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+        
+      <div class="entity">
+        <a href="../../psconv/pxmlparser$package.html" target="_self">psconv.pxmlparser</a>
+        <br></br>
+        <span class="entity">class  ProeXMLParser</span>
+      </div><hr></hr>
+      <div class="source">
+        [source: <a href="" class="psconv/pxmlparser/ProeXMLParser"><code>psconv/pxmlparser/ProeXMLParser.scala</code></a>]
+      </div><hr></hr>
+      <a name="ProeXMLParser"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>class</code>
+        <em>ProeXMLParser</em>(<em>file</em> : <a href="" target="contentFrame" class="java/io/File">java.io.File</a>)
+      </dt>
+      <dd><code> extends </code><a href="../../psconv/pxmlparser/Node2ProeFactory.html" target="_self">Node2ProeFactory</a><code> with </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a></dd>
+    </dl>
+      <table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Additional Constructor Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#this%28String%29" target="_self">this</a></em>
+        (<em>filepath</em> : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>) : <a href="../../psconv/pxmlparser/ProeXMLParser.html" target="_self">ProeXMLParser</a>
+        
+        
+      </td>
+    </tr>
+      </table>
+
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Value Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code> val</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#rootElem" target="_self">rootElem</a></em>
+         : <a href="" target="contentFrame" class="scala/xml/Elem">scala.xml.Elem</a>
+        
+        
+      </td>
+    </tr>
+      </table>
+<table summary="" cellpadding="3" class="member">
+      <tr><td class="title" colspan="2">Method Summary</td></tr>
+      <tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createConstraint%28scala.xml.Node%29" target="_self">createConstraint</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/Constraint.html" target="_self">Constraint</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createDimension%28scala.xml.Node%29" target="_self">createDimension</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/Dimension.html" target="_self">Dimension</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createEntity%28scala.xml.Node%29" target="_self">createEntity</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/Entity.html" target="_self">Entity</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createEntityObj%28Int%2CString%29" target="_self">createEntityObj</a></em>
+        (<em>entId</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <em>pointType</em> : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>) : <a href="../../psconv/proe/EntityObj.html" target="_self">EntityObj</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createHorizontalConstraint%28scala.xml.Node%29" target="_self">createHorizontalConstraint</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/HorizontalConstraint.html" target="_self">HorizontalConstraint</a>
+        
+        <div>Expecting XML node with format:
+<pre>
+< pro2dConstraint id="4" type="PRO_CONSTRAINT_HORIZONTAL_ENT">
+  < entityReferences>
+    < entityReference id ="4" />
+  < / entityReferences>
+  < pointTypes>
+    < pointType type ="PRO_ENT_WHOLE" />
+  < / pointTypes>
+< / pro2dConstraint>
+</pre></div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createLine%28scala.xml.Node%29" target="_self">createLine</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/Line.html" target="_self">Line</a>
+        
+        <div>Expecting XML node with format:
+<pre>
+  < pro2dEntity id ="7" isProjection="true" type="PRO_2D_LINE">
+    < end1>
+      < Pro2dPnt x="3.5" y="4.7" />
+    < / end1>
+    < end2>
+      < Pro2dPnt x="3.5" y="4.7" />
+    < / end2>
+  < / pro2dEntity>
+</pre></div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createLineDim%28scala.xml.Node%29" target="_self">createLineDim</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/LineDim.html" target="_self">LineDim</a>
+        
+        <div>Expecting XML node with format:
+<pre>
+< pro2dDimension id="1" type="PRO_TK_DIM_LINE" value="200.00" >
+  < entityReferences>
+    < entityReference id ="4" />
+  < / entityReferences>
+  < pointTypes>
+    < pointType type ="PRO_ENT_WHOLE" />
+  < / pointTypes>
+< / pro2dDimension>
+</pre></div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createLinePointDim%28scala.xml.Node%29" target="_self">createLinePointDim</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/LinePointDim.html" target="_self">LinePointDim</a>
+        
+        <div>Expecting XML node with format:
+<pre>
+< pro2dDimension id="3" type="PRO_TK_DIM_LINE_POINT" value="40.00" >
+	< entityReferences>
+		< entityReference id ="0" />
+		< entityReference id ="7" />
+	< / entityReferences>
+	< pointTypes>
+		< pointType type ="PRO_ENT_WHOLE" />
+		< pointType type ="PRO_ENT_START" />
+	< / pointTypes>
+< / pro2dDimension>
+</pre></div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createPntOnEnt%28scala.xml.Node%29" target="_self">createPntOnEnt</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/PntOnEnt.html" target="_self">PntOnEnt</a>
+        
+        <div>Expecting XML node with format:
+<pre>
+< pro2dConstraint id="8" type="PRO_CONSTRAINT_PNT_ON_ENT">
+  < entityReferences>
+    < entityReference id ="0" />
+    < entityReference id ="4" />
+  < / entityReferences>
+  < pointTypes>
+    < pointType type ="PRO_ENT_WHOLE" />
+    < pointType type ="PRO_ENT_START" />
+  < / pointTypes>
+< / pro2dConstraint>
+</pre></div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createPoint%28scala.xml.Node%29" target="_self">createPoint</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/Point.html" target="_self">Point</a>
+        
+        <div>Expecting XML node with format: < Pro2dPnt x="3.5" y="4.7" /></div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createPointEnt%28scala.xml.Node%29" target="_self">createPointEnt</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/PointEntity.html" target="_self">PointEntity</a>
+        
+        <div>Expecting XML node with format:
+<pre>
+< pro2dEntity id="7" isProjection="true" type="PRO_2D_POINT">
+  < pnt>
+    < Pro2dPnt x="3.5" y="4.7" />
+  < / pnt>
+< / pro2dEntity>
+</pre></div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createSamePoint%28scala.xml.Node%29" target="_self">createSamePoint</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/SamePoint.html" target="_self">SamePoint</a>
+        
+        <div>Expecting XML node with format:
+<pre>
+< pro2dConstraint id="0" type="PRO_CONSTRAINT_SAME_POINT">
+  < entityReferences>
+    < entityReference id ="4" />
+    < entityReference id ="5" />
+  < / entityReferences>
+  < pointTypes>
+    < pointType type ="PRO_ENT_END" />
+    < pointType type ="PRO_ENT_START" />
+  < / pointTypes>
+< / pro2dConstraint>
+</pre></div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createSection" target="_self">createSection</a></em>
+         : <a href="../../psconv/proe/Pro2D.html" target="_self">Pro2D</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#createVerticalConstraint%28scala.xml.Node%29" target="_self">createVerticalConstraint</a></em>
+        (<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/VerticalConstraint.html" target="_self">VerticalConstraint</a>
+        
+        <div>Expecting XML node with format:
+<pre>
+< pro2dConstraint id="4" type="PRO_CONSTRAINT_VERTICAL_ENT">
+  < entityReferences>
+    < entityReference id ="4" />
+  < / entityReferences>
+  < pointTypes>
+    < pointType type ="PRO_ENT_WHOLE" />
+  < / pointTypes>
+< / pro2dConstraint>
+</pre></div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#getConstraintNodes" target="_self">getConstraintNodes</a></em>
+         : <a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#getConstraints" target="_self">getConstraints</a></em>
+         : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../psconv/proe/Constraint.html" target="_self">Constraint</a>]
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#getDimensionNodes" target="_self">getDimensionNodes</a></em>
+         : <a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#getDimensions" target="_self">getDimensions</a></em>
+         : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../psconv/proe/Dimension.html" target="_self">Dimension</a>]
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#getEntities" target="_self">getEntities</a></em>
+         : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../psconv/proe/Entity.html" target="_self">Entity</a>]
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> def</code>
+      </td>
+      <td class="signature">
+        <em><a href="../../psconv/pxmlparser/ProeXMLParser.html#getEntityNodes" target="_self">getEntityNodes</a></em>
+         : <a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>
+        
+        
+      </td>
+    </tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#getClass%28%29" target="_self">getClass</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#hashCode%28%29" target="_self">hashCode</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#equals%28Any%29" target="_self">equals</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#clone%28%29" target="_self">clone</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#toString%28%29" target="_self">toString</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notify%28%29" target="_self">notify</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#notifyAll%28%29" target="_self">notifyAll</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28Long%2CInt%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#wait%28%29" target="_self">wait</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#finalize%28%29" target="_self">finalize</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%3D%3D%28AnyRef%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#%21%3D%28AnyRef%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#eq%28AnyRef%29" target="_self">eq</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#ne%28AnyRef%29" target="_self">ne</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html#synchronized%28T0%29" target="_self">synchronized</a>
+        </td></tr>
+      </table><table summary="" cellpadding="3" class="inherited">
+        <tr><td class="title" colspan="2">
+          Methods inherited from <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html" target="_self">Any</a>
+        </td></tr>
+        <tr><td class="signature" colspan="2">
+          <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%3D%3D%28Any%29" target="_self">==</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#%21%3D%28Any%29" target="_self">!=</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#isInstanceOf" target="_self">isInstanceOf</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Any.html#asInstanceOf" target="_self">asInstanceOf</a>
+        </td></tr>
+      </table>
+
+
+      <table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Additional Constructor Details</td></tr>
+        </table><div><a name="this%28String%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>this</em>(<em>filepath</em> : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>) : <a href="../../psconv/pxmlparser/ProeXMLParser.html" target="_self">ProeXMLParser</a>
+      </dt>
+      <dd></dd>
+    </dl><hr></hr></div>
+
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Value Details</td></tr>
+        </table><div><a name="rootElem"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>val</code>
+        <em>rootElem</em> : <a href="" target="contentFrame" class="scala/xml/Elem">scala.xml.Elem</a>
+      </dt>
+      <dd></dd>
+    </dl><hr></hr></div>
+<table summary="" cellpadding="3" class="member-detail">
+          <tr><td class="title">Method Details</td></tr>
+        </table><div><a name="createSection"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createSection</em> : <a href="../../psconv/proe/Pro2D.html" target="_self">Pro2D</a>
+      </dt>
+      <dd></dd>
+    </dl><hr></hr>
+<a name="getEntityNodes"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>getEntityNodes</em> : <a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>
+      </dt>
+      <dd></dd>
+    </dl><hr></hr>
+<a name="getConstraintNodes"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>getConstraintNodes</em> : <a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>
+      </dt>
+      <dd></dd>
+    </dl><hr></hr>
+<a name="getDimensionNodes"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>getDimensionNodes</em> : <a href="" target="contentFrame" class="scala/xml/NodeSeq">scala.xml.NodeSeq</a>
+      </dt>
+      <dd></dd>
+    </dl><hr></hr>
+<a name="getEntities"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>getEntities</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../psconv/proe/Entity.html" target="_self">Entity</a>]
+      </dt>
+      <dd></dd>
+    </dl><hr></hr>
+<a name="getConstraints"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>getConstraints</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../psconv/proe/Constraint.html" target="_self">Constraint</a>]
+      </dt>
+      <dd></dd>
+    </dl><hr></hr>
+<a name="getDimensions"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>getDimensions</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../../psconv/proe/Dimension.html" target="_self">Dimension</a>]
+      </dt>
+      <dd></dd>
+    </dl><hr></hr>
+<a name="createEntity%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createEntity</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/Entity.html" target="_self">Entity</a>
+      </dt>
+      <dd></dd>
+    </dl><dl>
+        <dt style="margin:10px 0 0 20px;">
+          <b>Overrides</b>
+        </dt>
+        <dd>
+        <a href="../../psconv/pxmlparser/Node2ProeFactory.html" target="_self">Node2ProeFactory</a>.<a href="../../psconv/pxmlparser/Node2ProeFactory.html#createEntity%28scala.xml.Node%29" target="_self">createEntity</a>
+        </dd>
+      </dl><hr></hr>
+<a name="createConstraint%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createConstraint</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/Constraint.html" target="_self">Constraint</a>
+      </dt>
+      <dd></dd>
+    </dl><dl>
+        <dt style="margin:10px 0 0 20px;">
+          <b>Overrides</b>
+        </dt>
+        <dd>
+        <a href="../../psconv/pxmlparser/Node2ProeFactory.html" target="_self">Node2ProeFactory</a>.<a href="../../psconv/pxmlparser/Node2ProeFactory.html#createConstraint%28scala.xml.Node%29" target="_self">createConstraint</a>
+        </dd>
+      </dl><hr></hr>
+<a name="createDimension%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createDimension</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/Dimension.html" target="_self">Dimension</a>
+      </dt>
+      <dd></dd>
+    </dl><dl>
+        <dt style="margin:10px 0 0 20px;">
+          <b>Overrides</b>
+        </dt>
+        <dd>
+        <a href="../../psconv/pxmlparser/Node2ProeFactory.html" target="_self">Node2ProeFactory</a>.<a href="../../psconv/pxmlparser/Node2ProeFactory.html#createDimension%28scala.xml.Node%29" target="_self">createDimension</a>
+        </dd>
+      </dl><hr></hr>
+<a name="createPointEnt%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createPointEnt</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/PointEntity.html" target="_self">PointEntity</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Expecting XML node with format:
+<pre>
+< pro2dEntity id="7" isProjection="true" type="PRO_2D_POINT">
+  < pnt>
+    < Pro2dPnt x="3.5" y="4.7" />
+  < / pnt>
+< / pro2dEntity>
+</pre></dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="createPoint%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createPoint</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/Point.html" target="_self">Point</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Expecting XML node with format: < Pro2dPnt x="3.5" y="4.7" /></dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="createLine%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createLine</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/Line.html" target="_self">Line</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Expecting XML node with format:
+<pre>
+  < pro2dEntity id ="7" isProjection="true" type="PRO_2D_LINE">
+    < end1>
+      < Pro2dPnt x="3.5" y="4.7" />
+    < / end1>
+    < end2>
+      < Pro2dPnt x="3.5" y="4.7" />
+    < / end2>
+  < / pro2dEntity>
+</pre></dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="createEntityObj%28Int%2CString%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createEntityObj</em>(<em>entId</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <em>pointType</em> : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>) : <a href="../../psconv/proe/EntityObj.html" target="_self">EntityObj</a>
+      </dt>
+      <dd></dd>
+    </dl><hr></hr>
+<a name="createSamePoint%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createSamePoint</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/SamePoint.html" target="_self">SamePoint</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Expecting XML node with format:
+<pre>
+< pro2dConstraint id="0" type="PRO_CONSTRAINT_SAME_POINT">
+  < entityReferences>
+    < entityReference id ="4" />
+    < entityReference id ="5" />
+  < / entityReferences>
+  < pointTypes>
+    < pointType type ="PRO_ENT_END" />
+    < pointType type ="PRO_ENT_START" />
+  < / pointTypes>
+< / pro2dConstraint>
+</pre></dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="createHorizontalConstraint%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createHorizontalConstraint</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/HorizontalConstraint.html" target="_self">HorizontalConstraint</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Expecting XML node with format:
+<pre>
+< pro2dConstraint id="4" type="PRO_CONSTRAINT_HORIZONTAL_ENT">
+  < entityReferences>
+    < entityReference id ="4" />
+  < / entityReferences>
+  < pointTypes>
+    < pointType type ="PRO_ENT_WHOLE" />
+  < / pointTypes>
+< / pro2dConstraint>
+</pre></dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="createVerticalConstraint%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createVerticalConstraint</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/VerticalConstraint.html" target="_self">VerticalConstraint</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Expecting XML node with format:
+<pre>
+< pro2dConstraint id="4" type="PRO_CONSTRAINT_VERTICAL_ENT">
+  < entityReferences>
+    < entityReference id ="4" />
+  < / entityReferences>
+  < pointTypes>
+    < pointType type ="PRO_ENT_WHOLE" />
+  < / pointTypes>
+< / pro2dConstraint>
+</pre></dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="createPntOnEnt%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createPntOnEnt</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/PntOnEnt.html" target="_self">PntOnEnt</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Expecting XML node with format:
+<pre>
+< pro2dConstraint id="8" type="PRO_CONSTRAINT_PNT_ON_ENT">
+  < entityReferences>
+    < entityReference id ="0" />
+    < entityReference id ="4" />
+  < / entityReferences>
+  < pointTypes>
+    < pointType type ="PRO_ENT_WHOLE" />
+    < pointType type ="PRO_ENT_START" />
+  < / pointTypes>
+< / pro2dConstraint>
+</pre></dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="createLineDim%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createLineDim</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/LineDim.html" target="_self">LineDim</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Expecting XML node with format:
+<pre>
+< pro2dDimension id="1" type="PRO_TK_DIM_LINE" value="200.00" >
+  < entityReferences>
+    < entityReference id ="4" />
+  < / entityReferences>
+  < pointTypes>
+    < pointType type ="PRO_ENT_WHOLE" />
+  < / pointTypes>
+< / pro2dDimension>
+</pre></dd></dl>
+      <dl></dl>
+    <hr></hr>
+<a name="createLinePointDim%28scala.xml.Node%29"></a><dl>
+      <dt>
+        
+        <code></code>
+        <code>def</code>
+        <em>createLinePointDim</em>(<em>node</em> : <a href="" target="contentFrame" class="scala/xml/Node">scala.xml.Node</a>) : <a href="../../psconv/proe/LinePointDim.html" target="_self">LinePointDim</a>
+      </dt>
+      <dd></dd>
+    </dl>
+      <dl><dd>Expecting XML node with format:
+<pre>
+< pro2dDimension id="3" type="PRO_TK_DIM_LINE_POINT" value="40.00" >
+	< entityReferences>
+		< entityReference id ="0" />
+		< entityReference id ="7" />
+	< / entityReferences>
+	< pointTypes>
+		< pointType type ="PRO_ENT_WHOLE" />
+		< pointType type ="PRO_ENT_START" />
+	< / pointTypes>
+< / pro2dDimension>
+</pre></dd></dl>
+      <dl></dl>
+    <hr></hr></div>
+
+
+    <hr></hr>
+        <table summary="" class="navigation">
+        <tr>
+          <td class="navigation-links" valign="top">
+            <!-- <table><tr></tr></table> -->
+          </td>
+          <td align="right" valign="top" style="white-space:nowrap;" rowspan="2">
+            <div class="doctitle-larger">Scala 2</div>
+          </td>
+        </tr>
+        <tr><td></td></tr>
+      </table>
+      </body>
+      </html>

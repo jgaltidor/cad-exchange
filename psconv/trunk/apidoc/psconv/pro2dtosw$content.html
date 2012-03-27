@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>All classes and objects in psconv.pro2dtosw</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.7.final)" name="generator"></meta><link href="../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../script.js"></script>
+        </head>
+        <body onload="init()"><div class="page-title"><div>Scala 2<br></br>API Specification</div></div><p><div>This document is the API specification for Scala 2</div></p><table summary="" cellpadding="3" class="member">
+        <tr><td class="title" colspan="2">Class Summary</td></tr>
+        <tr>
+      <td class="modifiers" valign="top"> 
+        <code> trait</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/pro2dtosw/Converter.html" target="_self">Converter</a></em>
+        <code> extends </code>(<a href="../psconv/proe/Pro2D.html" target="_self">Pro2D</a>) =&gt; <a href="" target="contentFrame" class="scala/Option">scala.Option</a>[(<a href="../psconv/proe/Pro2D.html" target="_self">Pro2D</a>, <a href="../psconv/sw/SW2D.html" target="_self">SW2D</a>)]
+        
+        <div>Represents a conversion function that converts a
+  Pro/E subsection to a SolidWorks subsection.
+  Let optconv be an instance of Converter.
+  Let prosec be a Pro/E section.
+  Suppose optconv finds a subsection of that it
+  can convert and let prosubsec be this proe section.
+ Let swsubsec be the SW section that prosubsec
+ is converted to.
+ optconv.apply(prosec) should return Some(prosubsec, swsubsec).
+ If no subsection could be converted,
+ then None is returned.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/pro2dtosw/DefaultConversion.html" target="_self">DefaultConversion</a></em>
+        (<em>prosec</em> : <a href="../psconv/proe/Pro2D.html" target="_self">Pro2D</a>)<code> extends </code><a href="../psconv/pro2dtosw/OneToOneConv.html" target="_self">OneToOneConv</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/pro2dtosw/IllegalConversionException.html" target="_self">IllegalConversionException</a></em>
+        (<em>msg</em> : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>)<code> extends </code><a href="" target="contentFrame" class="java/lang/RuntimeException">java.lang.RuntimeException</a><code> with </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> trait</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/pro2dtosw/LoggingConverter.html" target="_self">LoggingConverter</a></em>
+        <code> extends </code><a href="../psconv/pro2dtosw/Converter.html" target="_self">Converter</a><code> with </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>abstract class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/pro2dtosw/NonOptConverter.html" target="_self">NonOptConverter</a></em>
+        <code> extends </code><a href="../psconv/pro2dtosw/Converter.html" target="_self">Converter</a><code> with </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>Allows a Java class to easierly implement
+  a subclass of Converter by having clients
+  implement noOptApply instead of apply,
+  which, does not return scala.None.
+  Instead of returning None,
+  noOptApply should return null</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> trait</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/pro2dtosw/OneToOneConv.html" target="_self">OneToOneConv</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/pro2dtosw/UnMappedElementException.html" target="_self">UnMappedElementException</a></em>
+        (<em>elem</em> : <a href="../psconv/proe/Pro2DElem.html" target="_self">Pro2DElem</a>, <em>msg</em> : <a href="" target="contentFrame" class="java/lang/String">java.lang.String</a>)<code> extends </code><a href="" target="contentFrame" class="java/lang/RuntimeException">java.lang.RuntimeException</a><code> with </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        
+      </td>
+    </tr>        
+        </table>
+<table summary="" cellpadding="3" class="member">
+        <tr><td class="title" colspan="2">Object Summary</td></tr>
+        <tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/pro2dtosw/Tester$object.html" target="_self">Tester</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/pro2dtosw/Utils$object.html" target="_self">Utils</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        
+      </td>
+    </tr>        
+        </table></body>
+      </html>
