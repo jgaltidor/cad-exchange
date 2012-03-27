@@ -1,0 +1,11 @@
+
+<pro2dConstraint id="7" type="PRO_CONSTRAINT_VERTICAL_ENT" status="PRO_TK_CONSTRAINT_ENABLED" >
+  <entityReferences>
+    <entityReference id ="2" />
+	<entityReference id ="5" />
+  </entityReferences>
+  <pointTypes>
+    <pointType type="PRO_ENT_WHOLE" />
+	<pointType type="PRO_ENT_START" />
+  </pointTypes>
+</pro2dConstraint>

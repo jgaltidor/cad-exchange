@@ -1,0 +1,43 @@
+Getting sections of Features!!!
+---------------------------------
+Function:  ProFeatureSectionCopy
+protk_appls\pt_examples\pt_feats\TestFeats.c
+
+
+Found helpful function for extracting 2D section
+in UtilSect.c:
+  ProError ProUtilSectionInfoGet(FILE *fp,ProSection section)
+
+My implementation will follow the implementation of that function.
+
+Three main functions for getting information from 2d sections:
+
+1) ProSectionConstraintsIdsGet
+X 2) ProSectionDimensionIdsGet
+2) ProSecdimIdsGet
+3) ProSectionEntityIdsGet
+
+So it seems the main info for sections are entities, dimensions, and constraints.
+
+Getting close to finishing with 2dsection extraction.
+
+Entity header file:  Pro2dEntdef.h
+Dimension Type header file:  ProSecdimType.h
+ * enum: ProSecdimType
+ * enum: ProSectionPointType
+Section Constraints header file:  ProSecConstr.h
+ * enum: ProConstraintType
+ * enum: ProConstraintStatus
+
+
+Constraint References
+---------------------
+  status = ProSectionConstraintsGet(section, con_ids[j],
+     &con_type, &con_status, &n_ref_ids, &ref_ids, &p_types);
+  ProTKFprintf(fp,"\t\tConstraint References:\n");
+  for (k=0; k<n_ref_ids; k++)
+  {
+	    p_type = ProUtilSectionPointTypeStr(p_types[k]);
+            ProTKFprintf(fp,"\t\t\tRef%d: Entity Id [%d], Point Type %s\n",
+		    k,ref_ids[k],p_type);
+  }

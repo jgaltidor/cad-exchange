@@ -1,0 +1,181 @@
+Format based on file Pro2dEntdef.h
+
+
+struct Pro2dPointdef
+ * type: PRO_2D_POINT
+ * note: same structure as Pro2dCoordSysdef
+------------------------------------
+<pro2dEntity id="7" isProjection="true" type="PRO_2D_POINT">
+  <pnt>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </pnt>
+</pro2dEntity>
+
+
+struct Pro2dCoordSysdef
+ * type: PRO_2D_COORD_SYS
+ * note: same structure as Pro2dPointdef
+------------------------------------
+<pro2dEntity id ="7" type="PRO_2D_COORD_SYS">
+  <pnt>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </pnt>
+</pro2dEntity>
+
+
+struct Pro2dLinedef
+ * type: PRO_2D_LINE
+ * note: same structure as Pro2dClinedef
+-----------------------------------------
+<pro2dEntity id ="7" isProjection="true" type="PRO_2D_LINE">
+  <end1>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </end1>
+  <end2>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </end2>
+</pro2dEntity>
+
+
+struct Pro2dClinedef
+ * type: PRO_2D_CENTER_LINE
+ * note: same structure as Pro2dLinedef
+-----------------------------------------
+<pro2dEntity id ="7" isProjection="true" type="PRO_2D_CENTER_LINE">
+  <end1>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </end1>
+  <end2>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </end2>
+</pro2dEntity>
+
+
+struct Pro2dArcdef
+ * type: PRO_2D_ARC
+-----------------------------------------
+<pro2dEntity id ="7" isProjection="true" type="PRO_2D_ARC">
+  <center>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </center>
+  <start_angle>
+    <ProAngle radians="1.5" />
+  </start_angle>
+  <end_angle>
+    <ProAngle radians="1.5" />
+  </end_angle>
+  <radius>5</radius>
+</pro2dEntity>
+
+
+struct Pro2dCircledef
+ * type: PRO_2D_CIRCLE
+-----------------------------------------
+<pro2dEntity id ="7" isProjection="true" type="PRO_2D_CIRCLE">
+  <center>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </center>
+  <radius>5</radius>
+</pro2dEntity>
+
+
+struct Pro2dPolylinedef
+ * type: PRO_2D_POLYLINE
+-----------------------------------------
+<pro2dEntity id ="7" isProjection="true" type="PRO_2D_POLYLINE">
+  <Pro2dSplineTanType>3</Pro2dSplineTanType> <!-- int enum constant -->
+  <n_points>3</n_points>
+  <point_arr>
+    <Pro2dPnt x="3.5" y="4.7" />
+    <Pro2dPnt x="2.5" y="4.7" />
+    <Pro2dPnt x="6.5" y="4.7" />
+  </point_arr>
+</pro2dEntity>
+
+struct Pro2dSplinedef
+ * type: PRO_2D_SPLINE
+-----------------------------------------
+<pro2dEntity id ="7" isProjection="true" type="PRO_2D_SPLINE">
+  <n_points>3</n_points>
+  <point_arr>
+    <Pro2dPnt x="3.5" y="4.7" />
+    <Pro2dPnt x="2.5" y="4.7" />
+    <Pro2dPnt x="6.5" y="4.7" />
+  </point_arr>
+  <start_tang_angle>
+    <ProAngle radians="1.5" />
+  </start_tang_angle>
+  <end_tang_angle>
+    <ProAngle radians="1.5" />
+  </end_tang_angle>
+</pro2dEntity>
+
+
+struct Pro2dTextdef
+ * type: PRO_2D_TEXT
+-----------------------------------------
+<pro2dEntity id ="7" isProjection="true" type="PRO_2D_TEXT">
+  <first_corner>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </first_corner>
+  <second_corner>
+    <Pro2dPnt x="2.5" y="4.7" />
+  </second_corner>
+  <string>
+    <ProComment>Some comment</ProComment>
+  </string>
+  <font_name>
+    <ProComment>Bold</ProComment>
+  </font_name>
+</pro2dEntity>
+
+
+struct Pro2dBlendVertexdef
+ * type: PRO_2D_BLEND_VERTEX
+-----------------------------------------
+<pro2dEntity id ="7" isProjection="true" type="PRO_2D_BLEND_VERTEX">
+  <pnt>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </pnt>
+  <depth_level>3</depth_level>
+</pro2dEntity>
+
+
+struct Pro2dEllipsedef
+ * type: PRO_2D_ELLIPSE
+-----------------------------------------
+<pro2dEntity id ="7" isProjection="true" type="PRO_2D_ELLIPSE">
+  <origin>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </origin>
+  <x_radius>2</x_radius>
+  <y_radius>3</y_radius>
+</pro2dEntity>
+
+
+struct Pro2dConicdef
+ * type: PRO_2D_CONIC
+-----------------------------------------
+<pro2dEntity id ="7" isProjection="true" type="PRO_2D_CONIC">
+  <first_end_point>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </first_end_point>
+  <second_end_point>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </second_end_point>
+  <shoulder_point>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </shoulder_point>
+  <parameter>2</parameter>
+</pro2dEntity>
+
+
+struct Pro2dSecGroupdef
+ * type: (not defined)
+-----------------------------------------
+<PRO_2D_SECGROUPDEF id ="7" isProjection="true">
+  <att_point>
+    <Pro2dPnt x="3.5" y="4.7" />
+  </att_point>
+</PRO_2D_SECGROUPDEF>
+
