@@ -1,0 +1,6 @@
+NAME       proexporter
+EXEC_FILE  proexporter.dll
+TEXT_DIR   text
+STARTUP    dll
+REVISION   18
+END
