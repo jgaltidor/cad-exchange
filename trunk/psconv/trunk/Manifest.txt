@@ -1,0 +1,2 @@
+Main-Class: psconv.MainApp
+Class-Path: scala-library.jar
