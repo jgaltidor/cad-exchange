@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+	xmlns:kb="http://www.e-designcenter.info/kb#" 
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+
+<rdf:Description kb:system = "Solidworks 2007" kb:version = "1.0"/>
+
+<kb:Feature_Extrude rdfs:label="Feature_Extrude_Type1">
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Union"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_OneDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Parameter_Depth"/>
+</kb:Feature_Extrude>
+
+<kb:Feature_Extrude rdfs:label="Feature_Extrude_Type2">
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Union"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_OneDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_To"/>
+</kb:Feature_Extrude>
+
+<kb:Feature_Extrude rdfs:label="Feature_Extrude_Type3">
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Union"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_TwoDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Parameter_Depth"/>
+	<kb:reference rdf:resource="&amp;kb;Parameter_Depth"/>
+</kb:Feature_Extrude>
+
+<kb:Feature_Extrude rdfs:label="Feature_Extrude_Type4">
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Union"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_TwoDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_To"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_To"/>
+</kb:Feature_Extrude>
+
+<kb:Feature_Extrude rdfs:label="Feature_Extrude_Type5">
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Union"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_TwoDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Parameter_Depth"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_To"/>
+</kb:Feature_Extrude>
+
+<kb:Feature_CutExtrude rdfs:label="Feature_CutExtrude_Type1">
+	<kb:reference rdf:resource="&amp;kb;Parameter_Depth"/>
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Subtraction"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Inside"/>
+        <kb:reference rdf:resource="&amp;kb;BooleanSign_OneDirection"/>
+</kb:Feature_CutExtrude>
+
+<kb:Feature_CutExtrude rdfs:label="Feature_CutExtrude_Type2">
+	<kb:reference rdf:resource="&amp;kb;Parameter_Depth"/>
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Subtraction"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Outside"/>
+        <kb:reference rdf:resource="&amp;kb;BooleanSign_OneDirection"/>
+</kb:Feature_CutExtrude>
+
+<kb:Feature_CutExtrude rdfs:label="Feature_CutExtrude_Type3">
+	<kb:reference rdf:resource="&amp;kb;Parameter_Depth"/>
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Subtraction"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Inside"/>
+        <kb:reference rdf:resource="&amp;kb;BooleanSign_TwoDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Parameter_Depth"/>
+</kb:Feature_CutExtrude>
+
+<kb:Feature_CutExtrude rdfs:label="Feature_CutExtrude_Type4">
+	<kb:reference rdf:resource="&amp;kb;Parameter_Depth"/>
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Subtraction"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Outside"/>
+        <kb:reference rdf:resource="&amp;kb;BooleanSign_TwoDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Parameter_Depth"/>
+</kb:Feature_CutExtrude>
+
+<kb:Feature_CutExtrude rdfs:label="Feature_CutExtrude_Type5">
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Subtraction"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Inside"/>
+        <kb:reference rdf:resource="&amp;kb;BooleanSign_OneDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_To"/>
+</kb:Feature_CutExtrude>
+
+<kb:Feature_CutExtrude rdfs:label="Feature_CutExtrude_Type6">
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Subtraction"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Outside"/>
+        <kb:reference rdf:resource="&amp;kb;BooleanSign_OneDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_To"/>
+</kb:Feature_CutExtrude>
+
+<kb:Feature_CutExtrude rdfs:label="Feature_CutExtrude_Type7">
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Subtraction"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Inside"/>
+        <kb:reference rdf:resource="&amp;kb;BooleanSign_TwoDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_To"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_To"/>
+</kb:Feature_CutExtrude>
+
+<kb:Feature_CutExtrude rdfs:label="Feature_CutExtrude_Type8">
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Subtraction"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Outside"/>
+        <kb:reference rdf:resource="&amp;kb;BooleanSign_TwoDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_To"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_To"/>
+</kb:Feature_CutExtrude>
+
+<kb:Feature_CutExtrude rdfs:label="Feature_CutExtrude_Type9">
+	<kb:reference rdf:resource="&amp;kb;Sketch"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_From"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Subtraction"/>
+	<kb:reference rdf:resource="&amp;kb;BooleanSign_Outside"/>
+        <kb:reference rdf:resource="&amp;kb;BooleanSign_TwoDirection"/>
+	<kb:reference rdf:resource="&amp;kb;Parameter_Depth"/>
+	<kb:reference rdf:resource="&amp;kb;Surface_To"/>
+</kb:Feature_CutExtrude>
+
+<kb:Feature_Mirror rdfs:label="Feature_Mirror">
+	<kb:reference rdf:resource="&amp;kb;Surface_Pattern"/>
+	<kb:reference rdf:resource="&amp;kb;Feature_Multi"/>
+</kb:Feature_Mirror>
+</rdf:RDF>

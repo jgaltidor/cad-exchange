@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:kb="http://www.e-designcenter.info/kb#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <kb:Feature_ExtrudedProtrusion kb:about="&amp;kb;Feature_ExtrudedProtrusion_1" rdfs:label="Feature_ExtrudedProtrusion_1">
+    <kb:reference rdf:resource="&amp;kb;Surface_1" />
+    <kb:reference rdf:resource="&amp;kb;Sketch_1" />
+    <kb:reference rdf:resource="&amp;kb;Parameter_1" />
+    <kb:reference rdf:resource="&amp;kb;Parameter_2" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_1" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_2" />
+  </kb:Feature_ExtrudedProtrusion>
+  <kb:Surface rdf:about="&amp;kb;Surface_1" kb:Type="From" kb:RootX="0" kb:RootY="0" kb:RootZ="0" kb:NormX="0" kb:NormY="-1" kb:NormZ="0" rdfs:label="Surface_1" />
+  <kb:Sketch rdf:about="&amp;kb;Sketch_1" rdfs:label="Sketch_1">
+    <kb:SketchLine_1 kb:Type="Line" kb:Start2DX="0" kb:Start2DY="-1.4690939437178585E-17" kb:Start3DX="0" kb:Start3DY="0" kb:Start3DZ="-1.4690939437178585E-17" kb:End2DX="-0.12" kb:End2DY="-1.4690939437178585E-17" kb:End3DX="-0.12" kb:End3DY="0" kb:End3DZ="-1.4690939437178585E-17" />
+    <kb:SketchLine_2 kb:Type="Line" kb:Start2DX="-0.12" kb:Start2DY="-1.4690939437178585E-17" kb:Start3DX="-0.12" kb:Start3DY="0" kb:Start3DZ="-1.4690939437178585E-17" kb:End2DX="-0.12" kb:End2DY="-0.010000000000000014" kb:End3DX="-0.12" kb:End3DY="0" kb:End3DZ="-0.010000000000000014" />
+    <kb:SketchLine_3 kb:Type="Line" kb:Start2DX="-0.12" kb:Start2DY="-0.010000000000000014" kb:Start3DX="-0.12" kb:Start3DY="0" kb:Start3DZ="-0.010000000000000014" kb:End2DX="-0.009999999999999995" kb:End2DY="-0.010000000000000014" kb:End3DX="-0.009999999999999995" kb:End3DY="0" kb:End3DZ="-0.010000000000000014" />
+    <kb:SketchLine_4 kb:Type="Line" kb:Start2DX="-0.0099999999999999881" kb:Start2DY="-0.010000000000000014" kb:Start3DX="-0.0099999999999999881" kb:Start3DY="0" kb:Start3DZ="-0.010000000000000014" kb:End2DX="-0.0099999999999999881" kb:End2DY="-0.060000000000000019" kb:End3DX="-0.0099999999999999881" kb:End3DY="0" kb:End3DZ="-0.060000000000000019" />
+    <kb:SketchLine_5 kb:Type="Line" kb:Start2DX="-0.0099999999999999881" kb:Start2DY="-0.060000000000000019" kb:Start3DX="-0.0099999999999999881" kb:Start3DY="0" kb:Start3DZ="-0.060000000000000019" kb:End2DX="0" kb:End2DY="-0.060000000000000019" kb:End3DX="0" kb:End3DY="0" kb:End3DZ="-0.060000000000000019" />
+    <kb:SketchLine_6 kb:Type="Line" kb:Start2DX="0" kb:Start2DY="-0.060000000000000019" kb:Start3DX="0" kb:Start3DY="0" kb:Start3DZ="-0.060000000000000019" kb:End2DX="0" kb:End2DY="-1.3877787807814457E-17" kb:End3DX="0" kb:End3DY="0" kb:End3DZ="-1.3877787807814457E-17" />
+  </kb:Sketch>
+  <kb:Parameter rdf:about="&amp;kb;Parameter_1" kb:Type="Depth" kb:Left="0.03" rdfs:label="Parameter_1" />
+  <kb:Parameter rdf:about="&amp;kb;Parameter_2" kb:Type="Depth" kb:Right="0.03" rdfs:label="Parameter_2" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_1" kb:Type="Union" rdfs:label="BooleanSign_1" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_2" kb:Type="TwoDirection" rdfs:label="BooleanSign_2" />
+  <kb:Feature_ExtrudedProtrusion kb:about="&amp;kb;Feature_ExtrudedProtrusion_2" rdfs:label="Feature_ExtrudedProtrusion_2">
+    <kb:reference rdf:resource="&amp;kb;Surface_2" />
+    <kb:reference rdf:resource="&amp;kb;Sketch_2" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_3" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_4" />
+    <kb:a_reference rdf:resource="&amp;kb;Surface_3" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_5" />
+  </kb:Feature_ExtrudedProtrusion>
+  <kb:Surface rdf:about="&amp;kb;Surface_2" kb:Type="From" kb:RootX="-0.042426406871192854" kb:RootY="0" kb:RootZ="0.042426406871192833" kb:NormX="0.70710678118654746" kb:NormY="0" kb:NormZ="0.70710678118654757" rdfs:label="Surface_2" />
+  <kb:Sketch rdf:about="&amp;kb;Sketch_2" rdfs:label="Sketch_2">
+    <kb:SketchLine_1 kb:Type="Line" kb:Start2DX="0.020000000000000004" kb:Start2DY="0.059999999999999991" kb:Start3DX="-6.9388939039072284E-18" kb:Start3DY="-0.020000000000000004" kb:Start3DZ="-6.9388939039072284E-18" kb:End2DX="0.020000000000000004" kb:End2DY="0.01999999999999999" kb:End3DX="-0.028284271247461912" kb:End3DY="-0.020000000000000004" kb:End3DZ="0.028284271247461891" />
+    <kb:SketchLine_2 kb:Type="Line" kb:Start2DX="0" kb:Start2DY="0.059999999999999991" kb:Start3DX="-6.9388939039072284E-18" kb:Start3DY="0" kb:Start3DZ="-6.9388939039072284E-18" kb:End2DX="0.02" kb:End2DY="0.059999999999999991" kb:End3DX="-6.9388939039072284E-18" kb:End3DY="-0.02" kb:End3DZ="-6.9388939039072284E-18" />
+    <kb:SketchLine_3 kb:Type="Line" kb:Start2DX="-0.019999999999999997" kb:Start2DY="0.059999999999999991" kb:Start3DX="-6.9388939039072284E-18" kb:Start3DY="0.019999999999999997" kb:Start3DZ="-6.9388939039072284E-18" kb:End2DX="0" kb:End2DY="0.059999999999999991" kb:End3DX="-6.9388939039072284E-18" kb:End3DY="0" kb:End3DZ="-6.9388939039072284E-18" />
+    <kb:SketchLine_4 kb:Type="Line" kb:Start2DX="-0.019999999999999997" kb:Start2DY="0.019999999999999987" kb:Start3DX="-0.028284271247461912" kb:Start3DY="0.019999999999999997" kb:Start3DZ="0.028284271247461891" kb:End2DX="-0.019999999999999997" kb:End2DY="0.06" kb:End3DX="0" kb:End3DY="0.019999999999999997" kb:End3DZ="-1.3877787807814457E-17" />
+    <kb:SketchArc_1 kb:Type="Arc" kb:Radius="0.02" kb:Start2DX="0.020000000000000004" kb:Start2DY="0.019999999999999983" kb:Start3DX="-0.028284271247461912" kb:Start3DY="-0.020000000000000004" kb:Start3DZ="0.028284271247461898" kb:End2DX="-0.019999999999999997" kb:End2DY="0.01999999999999999" kb:End3DX="-0.028284271247461912" kb:End3DY="0.019999999999999997" kb:End3DZ="0.028284271247461891" kb:Center2DX="3.4694469519536142E-18" kb:Center2DY="0.019999999999999987" kb:Center3DX="-0.028284271247461912" kb:Center3DY="-3.4694469519536142E-18" kb:Center3DZ="0.028284271247461891" kb:Key3DX="-0.042426406871192861" kb:Key3DY="2.04493445488445E-19" kb:Key3DZ="0.04242640687119284" />
+  </kb:Sketch>
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_3" kb:Type="Union" rdfs:label="BooleanSign_3" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_4" kb:Type="ToNext" rdfs:label="BooleanSign_4" />
+  <kb:Surface rdf:about="&amp;kb;Surface_3" kb:Type="To" kb:RootX="-0.028284271247461908" kb:RootY="-3.4694469519536142E-18" kb:RootZ="-1.7550522667109103E-17" kb:NormX="0" kb:NormY="0" kb:NormZ="1" rdfs:label="Surface_3" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_5" kb:Type="OneDirection" rdfs:label="BooleanSign_5" />
+  <kb:Feature_ExtrudedCutout kb:about="&amp;kb;Feature_ExtrudedCutout_1" rdfs:label="Feature_ExtrudedCutout_1">
+    <kb:reference rdf:resource="&amp;kb;Surface_4" />
+    <kb:reference rdf:resource="&amp;kb;Sketch_3" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_6" />
+    <kb:reference rdf:resource="&amp;kb;Parameter_3" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_7" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_8" />
+  </kb:Feature_ExtrudedCutout>
+  <kb:Surface rdf:about="&amp;kb;Surface_4" kb:Type="From" kb:RootX="-0.021213178435596419" kb:RootY="-3.4694469519536142E-18" kb:RootZ="0.021213178435596405" kb:NormX="0.70710678118654746" kb:NormY="0" kb:NormZ="0.70710678118654757" rdfs:label="Surface_4" />
+  <kb:Sketch rdf:about="&amp;kb;Sketch_3" rdfs:label="Sketch_3">
+    <kb:SketchCircle_1 kb:Type="Circle" kb:Radius="0.01" kb:Start2DX="-0.0099999999999999967" kb:Start2DY="0.010305121882972283" kb:Start3DX="-0.028500000000000004" kb:Start3DY="-0.01" kb:Start3DZ="0.028499999999999991" kb:End2DX="0.010000000000000004" kb:End2DY="0.010305121882972283" kb:End3DX="-0.028500000000000004" kb:End3DY="0.01" kb:End3DZ="0.028499999999999991" kb:Center2DX="3.4694469519536142E-18" kb:Center2DY="0.010305121882972283" kb:Center3DX="-0.028500000000000004" kb:Center3DY="0" kb:Center3DZ="0.028499999999999991" kb:P13DX="-0.021428932188134527" kb:P13DY="0" kb:P13DZ="0.021428932188134513" kb:P23DX="-0.035571067811865476" kb:P23DY="0" kb:P23DZ="0.035571067811865462" />
+  </kb:Sketch>
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_6" kb:Type="Inside" rdfs:label="BooleanSign_6" />
+  <kb:Parameter rdf:about="&amp;kb;Parameter_3" kb:Type="Depth" kb:Left="0.04" rdfs:label="Parameter_3" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_7" kb:Type="Subtraction" rdfs:label="BooleanSign_7" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_8" kb:Type="OneDirection" rdfs:label="BooleanSign_8" />
+  <kb:Feature_ExtrudedCutout kb:about="&amp;kb;Feature_ExtrudedCutout_2" rdfs:label="Feature_ExtrudedCutout_2">
+    <kb:reference rdf:resource="&amp;kb;Surface_5" />
+    <kb:reference rdf:resource="&amp;kb;Sketch_4" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_9" />
+    <kb:reference rdf:resource="&amp;kb;Surface_6" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_10" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_11" />
+  </kb:Feature_ExtrudedCutout>
+  <kb:Surface rdf:about="&amp;kb;Surface_5" kb:Type="From" kb:RootX="-0.028284258747461925" kb:RootY="-0.020000000000000004" kb:RootZ="0.014142123123730942" kb:NormX="0" kb:NormY="-1" kb:NormZ="0" rdfs:label="Surface_5" />
+  <kb:Sketch rdf:about="&amp;kb;Sketch_4" rdfs:label="Sketch_4">
+    <kb:SketchLine_1 kb:Type="Line" kb:Start2DX="0.010115247538986964" kb:Start2DY="0.0040268880847439958" kb:Start3DX="-0.018169011208474962" kb:Start3DY="-0.020000000000000004" kb:Start3DZ="0.018169011208474938" kb:End2DX="0.003044179727121489" kb:End2DY="-0.0030441797271214804" kb:End3DX="-0.025240079020340436" kb:End3DY="-0.020000000000000004" kb:End3DZ="0.011097943396609461" />
+    <kb:SketchLine_2 kb:Type="Line" kb:Start2DX="0.003044179727121489" kb:Start2DY="-0.0030441797271214804" kb:Start3DX="-0.025240079020340436" kb:Start3DY="-0.020000000000000004" kb:Start3DZ="0.011097943396609461" kb:End2DX="0.010115247538986965" kb:End2DY="-0.010115247538986955" kb:End3DX="-0.018169011208474958" kb:End3DY="-0.020000000000000004" kb:End3DZ="0.0040268755847439868" />
+    <kb:SketchLine_3 kb:Type="Line" kb:Start2DX="0.010115247538986965" kb:Start2DY="-0.010115247538986955" kb:Start3DX="-0.018169011208474958" kb:Start3DY="-0.020000000000000004" kb:Start3DZ="0.0040268755847439868" kb:End2DX="0.017186315350852438" kb:End2DY="-0.0030441797271214795" kb:End3DX="-0.011097943396609487" kb:End3DY="-0.020000000000000004" kb:End3DZ="0.011097943396609463" />
+    <kb:SketchLine_4 kb:Type="Line" kb:Start2DX="0.017186315350852438" kb:Start2DY="-0.0030441797271214786" kb:Start3DX="-0.011097943396609487" kb:Start3DY="-0.020000000000000004" kb:Start3DZ="0.011097943396609463" kb:End2DX="0.010115247538986964" kb:End2DY="0.0040268880847439958" kb:End3DX="-0.018169011208474962" kb:End3DY="-0.020000000000000004" kb:End3DZ="0.018169011208474938" />
+  </kb:Sketch>
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_9" kb:Type="Inside" rdfs:label="BooleanSign_9" />
+  <kb:Surface rdf:about="&amp;kb;Surface_6" kb:Type="To" kb:RootX="-0.028284258747461894" kb:RootY="0.019999999999999993" kb:RootZ="0.014142123123730924" kb:NormX="0" kb:NormY="1" kb:NormZ="0" rdfs:label="Surface_6" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_10" kb:Type="Subtraction" rdfs:label="BooleanSign_10" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_11" kb:Type="OneDirection" rdfs:label="BooleanSign_11" />
+  <kb:Feature_ExtrudedCutout kb:about="&amp;kb;Feature_ExtrudedCutout_3" rdfs:label="Feature_ExtrudedCutout_3">
+    <kb:reference rdf:resource="&amp;kb;Surface_7" />
+    <kb:reference rdf:resource="&amp;kb;Sketch_5" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_12" />
+    <kb:reference rdf:resource="&amp;kb;Surface_8" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_13" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_14" />
+  </kb:Feature_ExtrudedCutout>
+  <kb:Surface rdf:about="&amp;kb;Surface_7" kb:Type="From" kb:RootX="-0.059999975000000004" kb:RootY="0" kb:RootZ="-1.4690939437178585E-17" kb:NormX="0" kb:NormY="0" kb:NormZ="1" rdfs:label="Surface_7" />
+  <kb:Sketch rdf:about="&amp;kb;Sketch_5" rdfs:label="Sketch_5">
+    <kb:SketchCircle_1 kb:Type="Circle" kb:Radius="0.005" kb:Start2DX="-0.055000024999999987" kb:Start2DY="-0.019999999999999997" kb:Start3DX="-0.11499999999999999" kb:Start3DY="-0.019999999999999997" kb:Start3DZ="-1.4690939437178585E-17" kb:End2DX="-0.045000024999999992" kb:End2DY="-0.019999999999999997" kb:End3DX="-0.105" kb:End3DY="-0.019999999999999997" kb:End3DZ="-1.4690939437178585E-17" kb:Center2DX="-0.05000002499999999" kb:Center2DY="-0.019999999999999997" kb:Center3DX="-0.10999999999999999" kb:Center3DY="-0.019999999999999997" kb:Center3DZ="-1.4690939437178585E-17" kb:P13DX="-0.10999999999999999" kb:P13DY="-0.024999999999999998" kb:P13DZ="-1.4690939437178585E-17" kb:P23DX="-0.10999999999999999" kb:P23DY="-0.014999999999999996" kb:P23DZ="-1.4690939437178585E-17" />
+  </kb:Sketch>
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_12" kb:Type="Inside" rdfs:label="BooleanSign_12" />
+  <kb:Surface rdf:about="&amp;kb;Surface_8" kb:Type="To" kb:RootX="-0.065" kb:RootY="0" kb:RootZ="-0.010000000000000014" kb:NormX="0" kb:NormY="0" kb:NormZ="-1" rdfs:label="Surface_8" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_13" kb:Type="Subtraction" rdfs:label="BooleanSign_13" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_14" kb:Type="OneDirection" rdfs:label="BooleanSign_14" />
+  <kb:Feature_ExtrudedCutout kb:about="&amp;kb;Feature_ExtrudedCutout_4" rdfs:label="Feature_ExtrudedCutout_4">
+    <kb:reference rdf:resource="&amp;kb;Surface_9" />
+    <kb:reference rdf:resource="&amp;kb;Sketch_6" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_15" />
+    <kb:reference rdf:resource="&amp;kb;Surface_10" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_16" />
+    <kb:reference rdf:resource="&amp;kb;BooleanSign_17" />
+  </kb:Feature_ExtrudedCutout>
+  <kb:Surface rdf:about="&amp;kb;Surface_9" kb:Type="From" kb:RootX="0" kb:RootY="0" kb:RootZ="-0.029999975000000009" kb:NormX="1" kb:NormY="0" kb:NormZ="0" rdfs:label="Surface_9" />
+  <kb:Sketch rdf:about="&amp;kb;Sketch_6" rdfs:label="Sketch_6">
+    <kb:SketchCircle_1 kb:Type="Circle" kb:Radius="0.005" kb:Start2DX="-0.024999999999999998" kb:Start2DY="-0.020000025000000012" kb:Start3DX="0" kb:Start3DY="-0.024999999999999998" kb:Start3DZ="-0.050000000000000017" kb:End2DX="-0.014999999999999996" kb:End2DY="-0.020000025000000012" kb:End3DX="0" kb:End3DY="-0.014999999999999996" kb:End3DZ="-0.050000000000000017" kb:Center2DX="-0.019999999999999997" kb:Center2DY="-0.020000025000000012" kb:Center3DX="0" kb:Center3DY="-0.019999999999999997" kb:Center3DZ="-0.050000000000000017" kb:P13DX="0" kb:P13DY="-0.019999999999999997" kb:P13DZ="-0.055000000000000021" kb:P23DX="0" kb:P23DY="-0.019999999999999997" kb:P23DZ="-0.045000000000000019" />
+  </kb:Sketch>
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_15" kb:Type="Inside" rdfs:label="BooleanSign_15" />
+  <kb:Surface rdf:about="&amp;kb;Surface_10" kb:Type="To" kb:RootX="-0.0099999999999999881" kb:RootY="0" kb:RootZ="-0.03500000000000001" kb:NormX="-1" kb:NormY="-0" kb:NormZ="-0" rdfs:label="Surface_10" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_16" kb:Type="Subtraction" rdfs:label="BooleanSign_16" />
+  <kb:BooleanSign rdf:about="&amp;kb;BooleanSign_17" kb:Type="OneDirection" rdfs:label="BooleanSign_17" />
+  <kb:Feature_MirrorCopy kb:about="&amp;kb;Feature_MirrorCopy_1" rdfs:label="Feature_MirrorCopy_1">
+    <kb:reference rdf:resource="&amp;kb;Surface_11" />
+    <kb:reference rdf:resource="&amp;kb;Feature_ExtrudedCutout_3" />
+    <kb:reference rdf:resource="&amp;kb;Feature_ExtrudedCutout_4" />
+  </kb:Feature_MirrorCopy>
+  <kb:Surface rdf:about="&amp;kb;Surface_11" kb:Type="Pattern" kb:RootX="0" kb:RootY="0" kb:RootZ="0" kb:NormX="0" kb:NormY="-1" kb:NormZ="0" rdfs:label="Surface_11" />
+</rdf:RDF>
