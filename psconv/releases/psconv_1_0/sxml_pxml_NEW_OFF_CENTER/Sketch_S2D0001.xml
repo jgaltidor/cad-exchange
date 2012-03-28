@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sw2DSection name="S2D0001">
+  <sw2DEntities>
+    <sw2DEntity ID="(4,0)" type="swSketchLINE">
+      <Start>
+        <sw2DPt ID="(4,1)" x ="40.0" y ="50.0" z ="0.0" />
+      </Start>
+      <End>
+        <sw2DPt ID="(4,2)" x ="240.0" y ="50.0" z ="0.0" />
+      </End>
+    </sw2DEntity>
+    <sw2DEntity ID="(5,0)" type="swSketchLINE">
+      <Start>
+        <sw2DPt ID="(5,1)" x ="240.0" y ="50.0" z ="0.0" />
+      </Start>
+      <End>
+        <sw2DPt ID="(5,2)" x ="240.0" y ="150.0" z ="0.0" />
+      </End>
+    </sw2DEntity>
+    <sw2DEntity ID="(6,0)" type="swSketchLINE">
+      <Start>
+        <sw2DPt ID="(6,1)" x ="240.0" y ="150.0" z ="0.0" />
+      </Start>
+      <End>
+        <sw2DPt ID="(6,2)" x ="40.0" y ="150.0" z ="0.0" />
+      </End>
+    </sw2DEntity>
+    <sw2DEntity ID="(7,0)" type="swSketchLINE">
+      <Start>
+        <sw2DPt ID="(7,1)" x ="40.0" y ="150.0" z ="0.0" />
+      </Start>
+      <End>
+        <sw2DPt ID="(7,2)" x ="40.0" y ="50.0" z ="0.0" />
+      </End>
+    </sw2DEntity>
+    <sw2DEntity ID="(8,0)" type="swSketchPOINT">
+      <Start>
+        <sw2DPt ID="(8,0)" x ="0.0" y ="0.0" z ="0.0" />
+      </Start>
+    </sw2DEntity>
+  </sw2DEntities>
+  <sw2DConstraints>
+    <sw2DConstraint type="swConstraintType_COINCIDENT">
+      <entityRefs>
+        <entityRef ID="(4,2)" />
+        <entityRef ID="(5,1)" />
+      </entityRefs>
+    </sw2DConstraint>
+    <sw2DConstraint type="swConstraintType_COINCIDENT">
+      <entityRefs>
+        <entityRef ID="(5,2)" />
+        <entityRef ID="(6,1)" />
+      </entityRefs>
+    </sw2DConstraint>
+    <sw2DConstraint type="swConstraintType_COINCIDENT">
+      <entityRefs>
+        <entityRef ID="(6,2)" />
+        <entityRef ID="(7,1)" />
+      </entityRefs>
+    </sw2DConstraint>
+    <sw2DConstraint type="swConstraintType_COINCIDENT">
+      <entityRefs>
+        <entityRef ID="(7,2)" />
+        <entityRef ID="(4,1)" />
+      </entityRefs>
+    </sw2DConstraint>
+    <sw2DConstraint type="swConstraintType_HORIZONTAL">
+      <entityRefs>
+        <entityRef ID="(4,0)" />
+      </entityRefs>
+    </sw2DConstraint>
+    <sw2DConstraint type="swConstraintType_HORIZONTAL">
+      <entityRefs>
+        <entityRef ID="(6,0)" />
+      </entityRefs>
+    </sw2DConstraint>
+    <sw2DConstraint type="swConstraintType_VERTICAL">
+      <entityRefs>
+        <entityRef ID="(5,0)" />
+      </entityRefs>
+    </sw2DConstraint>
+    <sw2DConstraint type="swConstraintType_VERTICAL">
+      <entityRefs>
+        <entityRef ID="(7,0)" />
+      </entityRefs>
+    </sw2DConstraint>
+  </sw2DConstraints>
+  <sw2DDimensions>
+    <sw2DDimension ID="D0" type="swLinearDimension" Value="100.0">
+      <entityRefs>
+        <entityRef ID="(5,1)" />
+        <entityRef ID="(5,2)" />
+      </entityRefs>
+    </sw2DDimension>
+    <sw2DDimension ID="D1" type="swLinearDimension" Value="200.0">
+      <entityRefs>
+        <entityRef ID="(4,1)" />
+        <entityRef ID="(4,2)" />
+      </entityRefs>
+    </sw2DDimension>
+    <sw2DDimension ID="D2" type="swVertLinearDimension" Value="50.0">
+      <entityRefs>
+        <entityRef ID="(8,0)" />
+        <entityRef ID="(4,1)" />
+      </entityRefs>
+    </sw2DDimension>
+    <sw2DDimension ID="D3" type="swHorLinearDimension" Value="40.0">
+      <entityRefs>
+        <entityRef ID="(8,0)" />
+        <entityRef ID="(7,1)" />
+      </entityRefs>
+    </sw2DDimension>
+  </sw2DDimensions>
+</sw2DSection>

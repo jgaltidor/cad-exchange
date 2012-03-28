@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+        <head><title>All classes and objects in psconv.proe</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF8"></meta><meta content="scaladoc (version 2.7.7.final)" name="generator"></meta><link href="../style.css" type="text/css" rel="stylesheet"></link><script type="text/javascript" src="../script.js"></script>
+        </head>
+        <body onload="init()"><div class="page-title"><div>Scala 2<br></br>API Specification</div></div><p><div>This document is the API specification for Scala 2</div></p><table summary="" cellpadding="3" class="member">
+        <tr><td class="title" colspan="2">Class Summary</td></tr>
+        <tr>
+      <td class="modifiers" valign="top"> 
+        <code>sealed abstract class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/Constraint.html" target="_self">Constraint</a></em>
+        (<code>val </code><em>id</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>)<code> extends </code><a href="../psconv/proe/Pro2DElem.html" target="_self">Pro2DElem</a><code> with </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>sealed abstract class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/Dimension.html" target="_self">Dimension</a></em>
+        (<code>val </code><em>id</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <code>val </code><em>value</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>)<code> extends </code><a href="../psconv/proe/Pro2DElem.html" target="_self">Pro2DElem</a><code> with </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>sealed abstract class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/Entity.html" target="_self">Entity</a></em>
+        (<code>val </code><em>id</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>)<code> extends </code><a href="../psconv/proe/EntityObj.html" target="_self">EntityObj</a><code> with </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>sealed trait</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/EntityObj.html" target="_self">EntityObj</a></em>
+        <code> extends </code><a href="../psconv/proe/Pro2DElem.html" target="_self">Pro2DElem</a>
+        
+        <div>The EntityObj type represents the set of elements that
+  can be referred to by entity references.</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/HorizontalConstraint.html" target="_self">HorizontalConstraint</a></em>
+        (<code>val override </code><em>id</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <code>val </code><em>line</em> : <a href="../psconv/proe/Line.html" target="_self">Line</a>)<code> extends </code><a href="../psconv/proe/Constraint.html" target="_self">Constraint</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/Line.html" target="_self">Line</a></em>
+        (<code>val override </code><em>id</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <code>val </code><em>isProj</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>, <code>val </code><em>start</em> : <a href="../psconv/proe/Point.html" target="_self">Point</a>, <code>val </code><em>end</em> : <a href="../psconv/proe/Point.html" target="_self">Point</a>)<code> extends </code><a href="../psconv/proe/Entity.html" target="_self">Entity</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/LineDim.html" target="_self">LineDim</a></em>
+        (<code>val override </code><em>id</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <code>val override </code><em>value</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>, <code>val </code><em>line</em> : <a href="../psconv/proe/Line.html" target="_self">Line</a>)<code> extends </code><a href="../psconv/proe/Dimension.html" target="_self">Dimension</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/LinePointDim.html" target="_self">LinePointDim</a></em>
+        (<code>val override </code><em>id</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <code>val override </code><em>value</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>, <code>val </code><em>line</em> : <a href="../psconv/proe/Line.html" target="_self">Line</a>, <code>val </code><em>point</em> : <a href="../psconv/proe/Point.html" target="_self">Point</a>)<code> extends </code><a href="../psconv/proe/Dimension.html" target="_self">Dimension</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PntOnEnt.html" target="_self">PntOnEnt</a></em>
+        (<code>val override </code><em>id</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <code>val </code><em>line</em> : <a href="../psconv/proe/Line.html" target="_self">Line</a>, <code>val </code><em>point</em> : <a href="../psconv/proe/Point.html" target="_self">Point</a>)<code> extends </code><a href="../psconv/proe/Constraint.html" target="_self">Constraint</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/Point.html" target="_self">Point</a></em>
+        (<code>val </code><em>x</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>, <code>val </code><em>y</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>)<code> extends </code><a href="../psconv/proe/EntityObj.html" target="_self">EntityObj</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        <div>ent is the entity that this point is a parameter of</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PointEntity.html" target="_self">PointEntity</a></em>
+        (<code>val override </code><em>id</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <code>val </code><em>point</em> : <a href="../psconv/proe/Point.html" target="_self">Point</a>)<code> extends </code><a href="../psconv/proe/Entity.html" target="_self">Entity</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>sealed trait</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PointType.html" target="_self">PointType</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/Pro2D.html" target="_self">Pro2D</a></em>
+        (<code>val </code><em>entities</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../psconv/proe/Entity.html" target="_self">Entity</a>], <code>val </code><em>constraints</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../psconv/proe/Constraint.html" target="_self">Constraint</a>], <code>val </code><em>dimensions</em> : <a href="" target="contentFrame" class="scala/List">scala.List</a>[<a href="../psconv/proe/Dimension.html" target="_self">Dimension</a>])<code> extends </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> trait</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/Pro2DElem.html" target="_self">Pro2DElem</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        <div>root trait of all Pro2D Elements</div>
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/SamePoint.html" target="_self">SamePoint</a></em>
+        (<code>val override </code><em>id</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <code>val </code><em>point1</em> : <a href="../psconv/proe/Point.html" target="_self">Point</a>, <code>val </code><em>point2</em> : <a href="../psconv/proe/Point.html" target="_self">Point</a>)<code> extends </code><a href="../psconv/proe/Constraint.html" target="_self">Constraint</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case class</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/VerticalConstraint.html" target="_self">VerticalConstraint</a></em>
+        (<code>val override </code><em>id</em> : <a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <code>val </code><em>line</em> : <a href="../psconv/proe/Line.html" target="_self">Line</a>)<code> extends </code><a href="../psconv/proe/Constraint.html" target="_self">Constraint</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>        
+        </table>
+<table summary="" cellpadding="3" class="member">
+        <tr><td class="title" colspan="2">Object Summary</td></tr>
+        <tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/HorizontalConstraint$object.html" target="_self">HorizontalConstraint</a></em>
+        <code> extends </code>(<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <a href="../psconv/proe/Line.html" target="_self">Line</a>) =&gt; <a href="../psconv/proe/HorizontalConstraint.html" target="_self">HorizontalConstraint</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/Line$object.html" target="_self">Line</a></em>
+        <code> extends </code>(<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Boolean.html" target="_self">Boolean</a>, <a href="../psconv/proe/Point.html" target="_self">Point</a>, <a href="../psconv/proe/Point.html" target="_self">Point</a>) =&gt; <a href="../psconv/proe/Line.html" target="_self">Line</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/LineDim$object.html" target="_self">LineDim</a></em>
+        <code> extends </code>(<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>, <a href="../psconv/proe/Line.html" target="_self">Line</a>) =&gt; <a href="../psconv/proe/LineDim.html" target="_self">LineDim</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/LinePointDim$object.html" target="_self">LinePointDim</a></em>
+        <code> extends </code>(<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>, <a href="../psconv/proe/Line.html" target="_self">Line</a>, <a href="../psconv/proe/Point.html" target="_self">Point</a>) =&gt; <a href="../psconv/proe/LinePointDim.html" target="_self">LinePointDim</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PRO_ENT_BOTTOM_TANGENT$object.html" target="_self">PRO_ENT_BOTTOM_TANGENT</a></em>
+        <code> extends </code><a href="../psconv/proe/PointType.html" target="_self">PointType</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PRO_ENT_CENTER$object.html" target="_self">PRO_ENT_CENTER</a></em>
+        <code> extends </code><a href="../psconv/proe/PointType.html" target="_self">PointType</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PRO_ENT_END$object.html" target="_self">PRO_ENT_END</a></em>
+        <code> extends </code><a href="../psconv/proe/PointType.html" target="_self">PointType</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PRO_ENT_LEFT_TANGENT$object.html" target="_self">PRO_ENT_LEFT_TANGENT</a></em>
+        <code> extends </code><a href="../psconv/proe/PointType.html" target="_self">PointType</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PRO_ENT_RIGHT_TANGENT$object.html" target="_self">PRO_ENT_RIGHT_TANGENT</a></em>
+        <code> extends </code><a href="../psconv/proe/PointType.html" target="_self">PointType</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PRO_ENT_START$object.html" target="_self">PRO_ENT_START</a></em>
+        <code> extends </code><a href="../psconv/proe/PointType.html" target="_self">PointType</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PRO_ENT_TOP_TANGENT$object.html" target="_self">PRO_ENT_TOP_TANGENT</a></em>
+        <code> extends </code><a href="../psconv/proe/PointType.html" target="_self">PointType</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code>case object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PRO_ENT_WHOLE$object.html" target="_self">PRO_ENT_WHOLE</a></em>
+        <code> extends </code><a href="../psconv/proe/PointType.html" target="_self">PointType</a><code> with </code><a href="" target="contentFrame" class="scala/Product">scala.Product</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PntOnEnt$object.html" target="_self">PntOnEnt</a></em>
+        <code> extends </code>(<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <a href="../psconv/proe/Line.html" target="_self">Line</a>, <a href="../psconv/proe/Point.html" target="_self">Point</a>) =&gt; <a href="../psconv/proe/PntOnEnt.html" target="_self">PntOnEnt</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/Point$object.html" target="_self">Point</a></em>
+        <code> extends </code>(<a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>, <a href="http://www.scala-lang.org/docu/files/api/scala/Double.html" target="_self">Double</a>) =&gt; <a href="../psconv/proe/Point.html" target="_self">Point</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/PointEntity$object.html" target="_self">PointEntity</a></em>
+        <code> extends </code>(<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <a href="../psconv/proe/Point.html" target="_self">Point</a>) =&gt; <a href="../psconv/proe/PointEntity.html" target="_self">PointEntity</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/Pro2D$object.html" target="_self">Pro2D</a></em>
+        <code> extends </code><a href="http://www.scala-lang.org/docu/files/api/scala/AnyRef.html" target="_self">AnyRef</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/SamePoint$object.html" target="_self">SamePoint</a></em>
+        <code> extends </code>(<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <a href="../psconv/proe/Point.html" target="_self">Point</a>, <a href="../psconv/proe/Point.html" target="_self">Point</a>) =&gt; <a href="../psconv/proe/SamePoint.html" target="_self">SamePoint</a>
+        
+        
+      </td>
+    </tr>
+<tr>
+      <td class="modifiers" valign="top"> 
+        <code> object</code>
+      </td>
+      <td class="signature">
+        <em><a href="../psconv/proe/VerticalConstraint$object.html" target="_self">VerticalConstraint</a></em>
+        <code> extends </code>(<a href="http://www.scala-lang.org/docu/files/api/scala/Int.html" target="_self">Int</a>, <a href="../psconv/proe/Line.html" target="_self">Line</a>) =&gt; <a href="../psconv/proe/VerticalConstraint.html" target="_self">VerticalConstraint</a>
+        
+        
+      </td>
+    </tr>        
+        </table></body>
+      </html>
