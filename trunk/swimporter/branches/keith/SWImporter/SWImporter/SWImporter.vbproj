@@ -37,8 +37,14 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SolidWorks.Interop.sldworks, Version=18.2.1.12, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL" />
-    <Reference Include="SolidWorks.Interop.swconst, Version=18.2.1.12, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL" />
+    <Reference Include="SolidWorks.Interop.sldworks, Version=20.2.0.55, Culture=neutral, PublicKeyToken=7c4797c3e4eeac03, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\SolidWorks Corp\SolidWorks\SolidWorks.Interop.sldworks.dll</HintPath>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swconst, Version=20.2.0.55, Culture=neutral, PublicKeyToken=19f43e188e4269d8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\SolidWorks Corp\SolidWorks\SolidWorks.Interop.swconst.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -103,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="notes.txt" />
+    <Content Include="unittests\Sketch_S2D0002.xml" />
     <Content Include="unittests\Sketch_swsec_S2D0001.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
