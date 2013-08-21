@@ -116,10 +116,10 @@ Module SWXMLImporter
 
 End Module
 
-
+    '--------------------------------test using the SW spline XML
 Module Tester
 	Sub Main()
-		SWXMLImporter.Main(New String() {"..\..\sec_S2D0001.sldprt", "..\..\unittests\Sketch_swsec_S2D0001.xml"})
+            SWXMLImporter.Main(New String() {"..\..\splineTest.sldprt", "..\..\unittests\Sketch_S2D0002.xml"})
 	End Sub
 End Module
 

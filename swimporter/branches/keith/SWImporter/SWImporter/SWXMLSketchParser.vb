@@ -6,7 +6,7 @@ Imports System.Collections.Generic
 Namespace SWImporter
 
 Public Class SWXMLSketchParser
-	'Root XML node of input XML file 
+        'Root XML node of input XML file 
 	Private nav As XPathNavigator
 
 	'Model to insert sketch to
@@ -73,7 +73,7 @@ Public Class SWXMLSketchParser
 
 
 	Private Sub createEntity(ByRef node As XPathNavigator)
-		Dim typ As String = GetAttr(node, "type")
+            Dim typ As String = GetAttr(node, "type")
 		Select Case typ
 			Case "swSketchLINE"
 				createLine(node)
@@ -84,10 +84,12 @@ Public Class SWXMLSketchParser
 			Case "swSketchPARABOLA"
 				createParabola(node)
 			Case "swSketchPOINT"
-				createPoint(node)
-			Case Else
-				Console.Error.WriteLine("Unknown entity type: " & typ)
-		End Select
+                    createPoint(node)
+                Case "swSketchSpline"
+                    createSpline(node)
+                Case Else
+                    Console.Error.WriteLine("Unknown entity type: " & typ)
+            End Select
 	End Sub
 
 
@@ -233,25 +235,59 @@ Public Class SWXMLSketchParser
 	'      <sw2DPt ID="(0,1)" x ="0" y ="0" z ="0" />
 	'    </Start>
 	'  </sw2DEntity>
-	Private Function createPoint(ByRef node As XPathNavigator) As SketchPoint
-		Dim spNode As XPathNavigator = GetUniqueNode(node.Select("Start/sw2DPt"))
-		Dim sp As Double() = GetCoord(spNode)
-		Dim id As String = GetEid(node)
-		Console.WriteLine("Creating point for entity " + id.ToString())
-		Dim sketch As SketchManager = swModel.SketchManager
-		Dim pt As ISketchPoint = sketch.CreatePoint(sp(0), sp(1), sp(2))
-		If pt Is Nothing Then
-			'Search if there is already an existing point at the same location
-			Dim pair As KeyValuePair(Of String, ISketchPoint) = SearchForPoint(sp(0), sp(1), sp(2), eidmap)
-			If pair.Value Is Nothing Then
-				Throw New Exception(String.Format("Cannot create new point ({0}, {1}, {2})", _
-					sp(0), sp(1), sp(2)))
-			End If
-			pt = pair.Value
-		End If
-		addEidMapping(id, pt)
-		Return pt
-	End Function
+        Private Function createPoint(ByRef node As XPathNavigator) As SketchPoint
+            'Console.WriteLine(node)
+
+            Dim spNode As XPathNavigator = GetUniqueNode(node.Select("Start/sw2DPt"))
+            Dim sp As Double() = GetCoord(spNode)
+            Dim id As String = GetEid(node)
+            Console.WriteLine("Creating point for entity " + id.ToString())
+            Dim sketch As SketchManager = swModel.SketchManager
+            Dim pt As ISketchPoint = sketch.CreatePoint(sp(0), sp(1), sp(2))
+            If pt Is Nothing Then
+                'Search if there is already an existing point at the same location
+                Dim pair As KeyValuePair(Of String, ISketchPoint) = SearchForPoint(sp(0), sp(1), sp(2), eidmap)
+                If pair.Value Is Nothing Then
+                    Throw New Exception(String.Format("Cannot create new point ({0}, {1}, {2})", _
+                     sp(0), sp(1), sp(2)))
+                End If
+                pt = pair.Value
+            End If
+            addEidMapping(id, pt)
+            Return pt
+        End Function
+
+        '--------------------------------------------------------------------------------
+        Private Function createSpline(ByRef node As XPathNavigator) As SketchSegment
+
+            Dim i As Integer
+            i = 0
+            For Each refnode As XPathNavigator In node.Select("PointArray/sw2DPt")
+                i = i + 1
+            Next
+
+            Dim points(i) As SketchPoint
+
+            Dim j As Integer
+            j = 0
+
+            For Each refnode As XPathNavigator In node.Select("PointArray/sw2DPt")
+                Console.WriteLine(j)
+                points(j) = createPoint(refnode) 'this line is the problem.
+                j = j + 1
+            Next
+
+            Console.WriteLine("past 2 for loop")
+
+            Dim sketch As SketchManager = swModel.SketchManager
+            Dim spline As ISketchPoint = sketch.CreateSpline(points)
+
+            Dim id As String = GetEid(node)
+            Console.WriteLine("Creating spline for entity " + id.ToString())
+
+            Return spline
+            '----------------------------------------------------------------------------------------------
+        End Function
 
 
 	'Expects an XML node with the following format:
