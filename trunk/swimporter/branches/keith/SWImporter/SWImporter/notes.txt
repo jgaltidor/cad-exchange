@@ -1,0 +1,6 @@
+﻿SolidWorks Libraries needed to reference for this project
+=======================================================
+Right-Click SWImporter project -> Add Reference...
+Reference the following libraries:
+  1) %SOLIDWORKS%\SolidWorks.Interop.sldworks.dll
+  2) %SOLIDWORKS%\SolidWorks.Interop.swconst.dll
