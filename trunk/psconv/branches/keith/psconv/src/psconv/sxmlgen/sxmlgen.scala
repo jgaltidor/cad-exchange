@@ -60,6 +60,7 @@ class SWXMLGenerator(output:TabPrintStream) extends util.TabPrintWrapper
 		ent match {
 			case e:Point => writePointEntity(e)
 			case e:Line => writeLine(e)
+			case e: Spline => writeSpline(e)
 		}
 		decrementTabs
 		println("</sw2DEntity>")
@@ -92,7 +93,22 @@ class SWXMLGenerator(output:TabPrintStream) extends util.TabPrintWrapper
 			double2Double(pnt.z))
 		println
 	}
-
+	//-------------------------------------------------------------
+	def writeSpline(spline:Spline):Unit = {
+	  val points = spline.points
+	  var i = 0
+	  println("<PointArray>")
+	  incrementTabs
+	  
+	  while (i < points.length){
+	      writePoint(points(i))
+	      i += 1
+	  }
+	  
+	  decrementTabs
+	  println("</PointArray>")
+	}
+	//------------------------------------------------------------
 	def writeConstraint(con:Constraint):Unit = {
 		printf("<sw2DConstraint type=\"%s\">", typstr(con))
 		println
@@ -136,7 +152,9 @@ object SWXMLGenerator
 	def typstr(ent:Entity) = ent match {
 		case e:Point => "swSketchPOINT"
 		case e:Line => "swSketchLINE"
-	}
+		  //---------------------------------------------------
+		case e:Spline => "swSketchSpline"
+	}//-------------------------------------------------------
 	
 	def typstr(con:Constraint) = con match {
 		case c:Coincident => "swConstraintType_COINCIDENT"
@@ -215,3 +233,21 @@ object Tester
 	}
 }
 
+object Tester2
+{
+	import psconv.sw._
+	def main(args:Array[String]):Unit = {
+	  val p1 = Point((1,0), 3.0, 2.0, 1.0)
+	  val p2 = Point((2,0), 4.0, 2.0, 1.0)
+	  val spline = Spline((3, 2), List(p1, p2))
+	  val section = SW2D(List(spline), Nil, Nil)
+	  
+	  	section.name = "testsw"
+		val filename = "unittests/swsec_" + section.name + ".xml"
+		println("Writing output SW section to file: " + filename)
+		val out = new TabPrintStream(filename, "  ")
+		SWXMLGenerator.writeSection(out, section)
+		out.close
+		println("Completed writing file: " + filename)
+	}
+}

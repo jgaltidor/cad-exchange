@@ -88,6 +88,20 @@ case class Point(x:Double, y:Double) extends EntityObj
 	var ent:Entity = null
 }
 
+// <ProAngle radians="0.40" />
+case class Angle(radians:Double) extends EntityObj
+{
+	var ang:Angle = null
+}
+
+case class Spline(override val id:Int, val nPoints:Int, val points:List[Point], val startTangAngle:Angle, val endTang_angle:Angle)extends Entity(id){ 
+	var i = 0
+	while (i < nPoints){
+		points(i).ent = this
+		i += 1
+	}
+  
+}
 // Entity Reference
 // <entityReferences>
 // 	<entityReference id ="4" />
@@ -97,7 +111,8 @@ case class Point(x:Double, y:Double) extends EntityObj
 // </pointTypes>
 // case class EntityRef(id:Int, ptype:PointType)
 
-// PointTypes - Defined in ProSecdimType.h
+
+// PointTypes - Defined in ProSecdimType.
 sealed trait PointType
 case object PRO_ENT_WHOLE          extends PointType
 case object PRO_ENT_START          extends PointType

@@ -49,6 +49,7 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 	def createEntity(node:Node):Entity = getAttrVal(node, "type") match {
 		case "PRO_2D_POINT" => createPointEnt(node)
 		case "PRO_2D_LINE"  => createLine(node)
+		case "PRO_2D_SPLINE" => createSpline(node)
 		case enttype =>
 			throw new ParserException("Unknown entity type: " + enttype)
 	}
@@ -118,6 +119,9 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 			case (Line(_, _, start, _), "PRO_ENT_START") => start
 			case (Line(_, _, _, end), "PRO_ENT_END") => end
 			case (PointEntity(_, pnt), "PRO_ENT_WHOLE") => pnt
+			case (Spline(_, _, points, _, _), "PRO_ENT_START") => points(0)
+			case (Spline(_, nPoints, points, _, _), "PRO_ENT_END") => points(nPoints - 1)
+			case (spline:Spline, "PRO_ENT_WHOLE") => spline
 			case (ent, _) =>
 				throw new ParserException("Unknown (entity, point type) " +
 					"combination: " + (ent, pointType))
@@ -193,6 +197,19 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 			getAttrVal(ptypes(0), "type")).asInstanceOf[Line]
 		VerticalConstraint(getId(node), line)
 	}
+	
+	/** Expecting XML node with format:
+	<start_angle>
+        <ProAngle radians="0.40" />
+      </start_angle>
+      <end_angle>
+        <ProAngle radians="1.42" />
+      </end_angle>
+	  */
+	def createAngle(node:Node):Angle = {
+		val angle = getAttrVal(node, "radians").toDouble
+		Angle(angle)
+	}
 
 	/** Expecting XML node with format:
 <pre>
@@ -242,6 +259,20 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 		val dimValue = getAttrVal(node, "value").toDouble
 		LineDim(getId(node), dimValue, line)
 	}	
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------------------------
+	def createSpline(node:Node):Spline = {
+
+	    val nPoints = node \ "pro2dEntities" \ "pro2dEntity" \ "n_points"
+	  
+	    val points =
+	      (for(n <- node \ "point_arr" \ "Pro2dPnt") yield createPoint(n)).toList
+
+	    val startTangAngle = createAngle(getUniqueNode(node \ "start_tang_angle" \ "ProAngle"))
+		val endTangAngle = createAngle(getUniqueNode(node \ "end_tang_angle" \ "ProAngle"))
+
+	    Spline(getId(node), 3, points, startTangAngle, endTangAngle)
+	}//------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	/** Expecting XML node with format:
 <pre>
