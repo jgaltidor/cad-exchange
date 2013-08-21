@@ -24,6 +24,7 @@ trait OneToOneConv
 		entity match {
 			case e:proe.Line => convLine(e)
 			case e:proe.PointEntity => convPointEntity(e)
+			case e:proe.Spline => convSpline(e)
 		}
 
 	@throws(classOf[UnMappedElementException])
@@ -47,6 +48,10 @@ trait OneToOneConv
 	// converting entities
 
 	def convLine(line:proe.Line):sw.Line
+	
+	//-----------------------------------------------------------------------------
+	def convSpline(spline:proe.Spline):sw.Spline
+	//-----------------------------------------------------------------------------
 
 	def convPointEntity(epnt:proe.PointEntity):sw.Point
 
@@ -122,6 +127,8 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 			prosec.constraints -- proSWConPairs.map(_._1),
 			prosec.dimensions  -- proSWDimPairs.map(_._1)
 		)
+		println(remainingProSec)
+		//println(outputSWSec)
 		
 		// output SW section so far
 		var outputSWSec = SW2D(proSWEntPairs.map(_._2),
@@ -158,6 +165,8 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 		outputSWSec.name = prosec.name
 
 		// All conversion funcs applied so return
+		println(remainingProSec)
+		println(outputSWSec)
 		(prosec -- remainingProSec, outputSWSec)
 	}
 
@@ -169,6 +178,15 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 			new sw.Line(entId(line), convPoint(line.start), convPoint(line.end))
 		else
 			throw new UnMappedElementException(line)
+	
+	//--------------------------------------------------------------------------------
+	def convSpline(spline:proe.Spline) ={
+		  
+	  val swpoints = spline.points.map(convPoint)
+	  new sw.Spline(entId(spline), swpoints)
+	 
+		} 
+	//--------------------------------------------------------------------------------
 	
 	def convPointEntity(epnt:proe.PointEntity) = convPoint(epnt.point)
 	
@@ -285,6 +303,14 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 			if(start == point) (id, 1)
 			else (id, 2)
 		case pent:proe.PointEntity => entId(pent)
+		case proe.Spline(id, _, points, _, _) => {
+		  val index = points indexOf point
+		  if(index == -1) {
+		    throw new IllegalConversionException(
+		        "%s not found in %s" format (point, points))
+		  }
+		  (id, index+1)
+		}
 	}
 	
 	def dimId(dim:proe.Dimension) = "D" + dim.id

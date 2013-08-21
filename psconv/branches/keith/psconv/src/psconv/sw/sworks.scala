@@ -63,6 +63,10 @@ sealed abstract class Entity(val id:(Int,Int))
 case class Line(override val id:(Int,Int), start:Point, end:Point) extends
 	Entity(id)
 
+//new spline class-------------------------------------------------------------------
+case class Spline(override val id:(Int,Int), points:List[Point]) extends Entity(id)
+//-----------------------------------------------------------------------------------
+
 // <sw2DPt ID="(0,1)" x ="0" y ="0" z ="0" />
 case class Point(override val id:(Int,Int), x:Double, y:Double,
 	z:Double) extends Entity(id)
