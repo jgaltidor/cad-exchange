@@ -76,6 +76,19 @@ case class Line(override val id:Int, val isProj:Boolean, val start:Point,
 	end.ent = this
 }
 
+case class Circle(override val id:Int, val radius:Double, val center:Point) extends Entity(id)
+{
+	center.ent = this
+}
+
+case class Arc(override val id:Int, val center:Point, val start_angle:Angle,
+	val end_angle:Angle, val radius:Double, val start:Point, val end:Point) extends Entity(id)
+{
+	center.ent = this
+	start.ent = this
+	end.ent = this
+}
+
 case class PointEntity(override val id:Int, val point:Point) extends Entity(id)
 {
 	point.ent = this
@@ -86,6 +99,12 @@ case class PointEntity(override val id:Int, val point:Point) extends Entity(id)
 case class Point(x:Double, y:Double) extends EntityObj
 {
 	var ent:Entity = null
+}
+
+// <ProAngle radians="0.40" />
+case class Angle(radians:Double) extends EntityObj
+{
+	var ang:Angle = null
 }
 
 // Entity Reference
@@ -125,14 +144,31 @@ case class VerticalConstraint(override val id:Int, line:Line) extends Constraint
 // <pro2dConstraint id="8" type="PRO_CONSTRAINT_PNT_ON_ENT"
 case class PntOnEnt(override val id:Int, line:Line, point:Point) extends Constraint(id)
 
+// <pro2dConstraint id="0" type="PRO_CONSTRAINT_EQUAL_RADII"
+case class EqualRadii(override val id:Int, circle1:Circle, circle2:Circle) extends Constraint(id)
+
+// <pro2dConstraint id="9" type="PRO_CONSTRAINT_EQUAL_SEGMENTS"
+case class EqualSegments(override val id:Int, line1:Line, line2:Line) extends Constraint(id)
+
 // ProE 2D Dimensions
-sealed abstract class Dimension(val id:Int, val value:Double) extends Pro2DElem
+sealed abstract class Dimension(val id:Int, val value:Double, val loc:Point) extends Pro2DElem
 
 // <pro2dDimension id="1" type="PRO_TK_DIM_LINE" value="200.00" >
 case class LineDim(override val id:Int, override val value:Double,
-	line:Line) extends Dimension(id, value)
+	override val loc:Point, line:Line) extends Dimension(id, value, loc)
+
+// <pro2dDimension id="0" type="PRO_TK_DIM_DIA" value="1.00" >	
+case class DiamDim(override val id:Int, override val value:Double,
+	override val loc:Point, circle:Circle) extends Dimension(id, value, loc)
+	
+// <pro2dDimension id="8" type="PRO_TK_DIM_RAD" value="12.92" >
+case class RadiusDim(override val id:Int, override val value:Double,
+	override val loc:Point, arc:Arc) extends Dimension(id, value, loc)
 
 // <pro2dDimension id="6" type="PRO_TK_DIM_LINE_POINT" value="20.00" >
 case class LinePointDim(override val id:Int, override val value:Double,
-	line:Line, point:Point) extends Dimension(id, value)
+	override val loc:Point, line:Line, point:Point) extends Dimension(id, value, loc)
 	
+// <pro2dDimension id="3" type="PRO_TK_DIM_LINES_ANGLE" value="45.00" >
+case class AngleDim(override val id: Int, override val value:Double,
+    override val loc:Point, line1:Line, line2:Line) extends Dimension(id, value, loc)

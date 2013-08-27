@@ -56,19 +56,18 @@ object MathFun
 	
 	def isXAxis(line:Line2D):Boolean =
 		(line.p1 == Point2D(0, 0) &&
-		line.p2.y == 0 && line.p2.x != 0)
+		line.p2.x != 0 && line.p2.y == 0)
 
 	def isYAxis(line:Line2D):Boolean =
 		(line.p1 == Point2D(0, 0) &&
-		line.p2.x == 0 && line.p2.y != 0)
+		line.p2.y != 0 && line.p2.x == 0)
 }
 
 
 class ListMax[A <% Ordered[A]]
 {
 	import scala.collection.JavaConversions._
-	
-	val list = new java.util.LinkedList[Ordered[A]]
+    val list = new java.util.LinkedList[Ordered[A]]
 	private var maxElem:Option[A] = None
 	
 	def ++=(itr:Iterable[A]):Unit =

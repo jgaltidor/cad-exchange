@@ -1,7 +1,11 @@
 package psconv.pro2dtosw
-import psconv._
-import proe.Pro2D
-import sw.SW2D
+import psconv.proe
+import psconv.proe.Pro2D
+import psconv.sw
+import psconv.sw.SW2D
+import psconv.util
+import psconv.util.Line2D
+import psconv.util.Point2D
 
 trait OneToOneConv
 {
@@ -23,7 +27,9 @@ trait OneToOneConv
 	def conv(entity:proe.Entity):sw.Entity =
 		entity match {
 			case e:proe.Line => convLine(e)
+			case e:proe.Circle => convCircle(e)
 			case e:proe.PointEntity => convPointEntity(e)
+			case e:proe.Arc => convArc(e)
 		}
 
 	@throws(classOf[UnMappedElementException])
@@ -32,6 +38,8 @@ trait OneToOneConv
 			case c:proe.SamePoint => convSamePoint(c)
 			case c:proe.HorizontalConstraint => convHorizontalConstraint(c)
 			case c:proe.VerticalConstraint => convVerticalConstraint(c)
+			case c:proe.EqualRadii => convEqualRadii(c)
+			case c:proe.EqualSegments => convEqualSegments(c)
 			case c:proe.PntOnEnt => throw new UnMappedElementException(c)
 		}
 
@@ -40,6 +48,9 @@ trait OneToOneConv
 		dimension match {
 			case d:proe.LineDim => convLineDim(d)
 			case d:proe.LinePointDim => convLinePointDim(d)
+			case d:proe.DiamDim => convDiamDim(d)
+			case d:proe.RadiusDim => convRadiusDim(d)
+			case d:proe.AngleDim => convAngleDim(d)
 		}
 
 	// Abstract Methods
@@ -47,12 +58,18 @@ trait OneToOneConv
 	// converting entities
 
 	def convLine(line:proe.Line):sw.Line
+	
+	def convCircle(circle:proe.Circle):sw.Circle
 
 	def convPointEntity(epnt:proe.PointEntity):sw.Point
+	
+	def convArc(arc:proe.Arc):sw.Arc
 
 	// converting non-entity point
 	def convPoint(pnt:proe.Point):sw.Point
-
+	
+	// converting location points for dimensions
+	def convDimPoint(pnt:proe.Point):sw.DimPoint
 
 	// converting constraints
 	def convSamePoint(con:proe.SamePoint):sw.Coincident
@@ -60,6 +77,10 @@ trait OneToOneConv
 	def convHorizontalConstraint(con:proe.HorizontalConstraint):sw.HorizontalConstraint
 
 	def convVerticalConstraint(con:proe.VerticalConstraint):sw.VerticalConstraint
+	
+	def convEqualRadii(con:proe.EqualRadii):sw.EqualSize
+	
+	def convEqualSegments(con:proe.EqualSegments):sw.EqualSize
 
 
 	// converting dimensions
@@ -67,6 +88,12 @@ trait OneToOneConv
 	def convLineDim(dim:proe.LineDim):sw.LineDim
 	
 	def convLinePointDim(dim:proe.LinePointDim):sw.LineDim
+	
+	def convDiamDim(dim:proe.DiamDim):sw.DiamDim
+	
+	def convRadiusDim(dim:proe.RadiusDim):sw.RadialDim
+	
+	def convAngleDim(dim:proe.AngleDim):sw.AngleDim
 }
 
 
@@ -161,7 +188,6 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 		(prosec -- remainingProSec, outputSWSec)
 	}
 
-
 	// converting entities
 
 	def convLine(line:proe.Line) =
@@ -169,11 +195,26 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 			new sw.Line(entId(line), convPoint(line.start), convPoint(line.end))
 		else
 			throw new UnMappedElementException(line)
+			
+	//Newly added, not sure about rad or radius, getting error: not found: value radius
+	def convCircle(circle:proe.Circle) =
+		new sw.Circle(entId(circle), convPoint(circle.center), circle.radius)
 	
 	def convPointEntity(epnt:proe.PointEntity) = convPoint(epnt.point)
 	
 	def convPoint(pnt:proe.Point) =
 		new sw.Point(entId(pnt), pnt.x, pnt.y, defaultZ)
+	
+	def convArc(arc:proe.Arc) = {
+		val middle = arc.center
+		val start = arc.start
+		val end = arc.end
+		new sw.Arc(entId(arc), convPoint(middle), convPoint(start), convPoint(end), 1)
+	}
+	
+	// converting dimension location points
+	def convDimPoint(pnt:proe.Point) =
+		new sw.DimPoint(pnt.x, pnt.y, defaultZ)
 	
 	private val defaultZ = 0
 
@@ -187,17 +228,36 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 
 	def convVerticalConstraint(con:proe.VerticalConstraint) =
 		new sw.VerticalConstraint(convLine(con.line))
+	
+	def convEqualRadii(con:proe.EqualRadii) =
+		new sw.EqualSize(convCircle(con.circle1), convCircle(con.circle2))
+	
+	def convEqualSegments(con:proe.EqualSegments) =
+		new sw.EqualSize(convLine(con.line1), convLine(con.line2))
+		
+	//What about adding diameter constraint? It doesn't exist in Pro/E but does in SW
 
 	// converting dimensions
 
 	def convLineDim(dim:proe.LineDim) =
-		new sw.LineDim(dimId(dim), dim.value,
+		new sw.LineDim(dimId(dim), dim.value, convDimPoint(dim.loc),
 			convPoint(dim.line.start), convPoint(dim.line.end))
 
 	def convLinePointDim(dim:proe.LinePointDim) =
-		new sw.LineDim(dimId(dim), dim.value,
+		new sw.LineDim(dimId(dim), dim.value, convDimPoint(dim.loc),
 			convLine(dim.line), convPoint(dim.point))
 			
+	def convDiamDim(dim:proe.DiamDim) = 
+		new sw.DiamDim(dimId(dim), dim.value, convDimPoint(dim.loc),
+			convCircle(dim.circle))
+	
+	def convRadiusDim(dim:proe.RadiusDim) =
+		new sw.RadialDim(dimId(dim), dim.value, convDimPoint(dim.loc),
+		    convArc(dim.arc))
+	
+	def convAngleDim(dim:proe.AngleDim) =
+		new sw.AngleDim(dimId(dim), dim.value, convDimPoint(dim.loc),
+		    convLine(dim.line1), convLine(dim.line2))
 
 	/** Converts subsections based on the INTERSECT rule */
 	class ConvPntOnEntIntersect extends Converter
@@ -254,11 +314,11 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 
 		def convertLinePointDimToAxes(dim:proe.LinePointDim):Option[sw.Dimension] =
 			if(isXAxis(dim.line))
-				Some(new sw.VerticalLineDim(dimId(dim), dim.value,
+				Some(new sw.VerticalLineDim(dimId(dim), dim.value, convDimPoint(dim.loc),
 					origin, convPoint(dim.point)))
 			else if(isYAxis(dim.line))
-				Some(new sw.HorizontalLineDim(dimId(dim), dim.value,
-					origin, convPoint(dim.point)))
+				Some(new sw.HorizontalLineDim(dimId(dim), dim.value, convDimPoint(dim.loc),
+				    origin, convPoint(dim.point)))
 			else
 				None
 
@@ -285,6 +345,11 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 			if(start == point) (id, 1)
 			else (id, 2)
 		case pent:proe.PointEntity => entId(pent)
+		case proe.Circle(id, _, _) => (id, 1)
+		case proe.Arc(id, center, _, _, _, start, _) => 
+		  	if(center == point) (id, 1)
+		  	else if(start == point) (id, 2)
+		  	else (id, 3)
 	}
 	
 	def dimId(dim:proe.Dimension) = "D" + dim.id
@@ -415,7 +480,7 @@ trait LoggingConverter extends Converter
 
 object Tester
 {
-	import pxmlparser._
+	import psconv.pxmlparser._
 
 	def main(args:Array[String]):Unit = {
 		if(args.length == 0) {

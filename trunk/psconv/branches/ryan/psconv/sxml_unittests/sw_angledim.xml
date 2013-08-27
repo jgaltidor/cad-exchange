@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sw2DSection name="S2D0001">
+  <sw2DEntities>
+    <sw2DEntity ID="(4,0)" type="swSketchLINE">
+      <Start>
+        <sw2DPt ID="(4,1)" x ="63.05" y ="47.55" z ="0.0" />
+      </Start>
+      <End>
+        <sw2DPt ID="(4,2)" x ="63.05" y ="154.41" z ="0.0" />
+      </End>
+    </sw2DEntity>
+    <sw2DEntity ID="(5,0)" type="swSketchLINE">
+      <Start>
+        <sw2DPt ID="(5,1)" x ="63.05" y ="154.41" z ="0.0" />
+      </Start>
+      <End>
+        <sw2DPt ID="(5,2)" x ="146.4" y ="71.06" z ="0.0" />
+      </End>
+    </sw2DEntity>
+    <sw2DEntity ID="(6,0)" type="swSketchPOINT">
+      <Start>
+        <sw2DPt ID="(6,0)" x ="0.0" y ="0.0" z ="0.0" />
+      </Start>
+    </sw2DEntity>
+  </sw2DEntities>
+  <sw2DConstraints>
+    <sw2DConstraint type="swConstraintType_COINCIDENT">
+      <entityRefs>
+        <entityRef ID="(4,2)" />
+        <entityRef ID="(5,1)" />
+      </entityRefs>
+    </sw2DConstraint>
+    <sw2DConstraint type="swConstraintType_VERTICAL">
+      <entityRefs>
+        <entityRef ID="(4,0)" />
+      </entityRefs>
+    </sw2DConstraint>
+  </sw2DConstraints>
+  <sw2DDimensions>
+    <sw2DDimension ID="D0" type="swLinearDimension" Value="106.86">
+      <entityRefs>
+        <entityRef ID="(4,1)" />
+        <entityRef ID="(4,2)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="52.15" y="87.44" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D12" type="swAngularDimension" Value="135.0">
+      <entityRefs>
+        <entityRef ID="(4,0)" />
+        <entityRef ID="(5,0)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="42.31" y="148.99" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D1" type="swHorLinearDimension" Value="63.05">
+      <entityRefs>
+        <entityRef ID="(6,0)" />
+        <entityRef ID="(4,1)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="28.34" y="44.44" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D2" type="swVertLinearDimension" Value="47.55">
+      <entityRefs>
+        <entityRef ID="(6,0)" />
+        <entityRef ID="(4,1)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="51.99" y="23.06" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D4" type="swVertLinearDimension" Value="71.06">
+      <entityRefs>
+        <entityRef ID="(6,0)" />
+        <entityRef ID="(5,2)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="129.06" y="34.81" z="0.0" />
+      </location>
+    </sw2DDimension>
+  </sw2DDimensions>
+</sw2DSection>
