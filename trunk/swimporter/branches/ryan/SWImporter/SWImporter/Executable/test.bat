@@ -1,0 +1,1 @@
+bin\swimporter out.sldprt unittests\sw_box.xml

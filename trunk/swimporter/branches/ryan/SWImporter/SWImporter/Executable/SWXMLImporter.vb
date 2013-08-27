@@ -119,7 +119,7 @@ End Module
 
 Module Tester
 	Sub Main()
-        Dim file As String = "Sketch_S2D0001"
+        Dim file As String = "sw_complex2d"
 		SWXMLImporter.Main(New String() {"..\..\" & file & ".sldprt", "..\..\unittests\" & file & ".xml"})
 	End Sub
 End Module

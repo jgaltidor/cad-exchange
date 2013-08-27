@@ -395,7 +395,11 @@ Public Class SWXMLSketchParser
 			'Dim dimension As Object = swModel.Parameter(displaydim.GetNameForSelection())
 			'dimension.SystemValue = val
 			Dim dimension As IDimension = displaydim.GetDimension2(0)
-			dimension.SetValue3(dimValue, swInConfigurationOpts_e.swThisConfiguration, Nothing)
+            'Dimension value should NOT be set, since dimension's placement will always be consistent with
+            'the entity and constraint specifications
+			dimension.SetValue3(dimValue, _
+				swInConfigurationOpts_e.swThisConfiguration, _
+				Nothing)
 		End If
 		swModel.ClearSelection2(True) 'Clear selection
 	End Sub
