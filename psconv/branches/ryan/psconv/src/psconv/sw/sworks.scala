@@ -62,10 +62,22 @@ sealed abstract class Entity(val id:(Int,Int))
 // <sw2DEntity ID="(1,1)" type="swSketchLINE">
 case class Line(override val id:(Int,Int), start:Point, end:Point) extends
 	Entity(id)
+	
+//<sw2DEntity ID="(0,1)" type="swSketchARC">
+case class Circle(override val id:(Int,Int), middle:Point, radius:Double) extends
+	Entity(id)
 
 // <sw2DPt ID="(0,1)" x ="0" y ="0" z ="0" />
 case class Point(override val id:(Int,Int), x:Double, y:Double,
 	z:Double) extends Entity(id)
+
+case class Angle(override val id:(Int,Int), radians:Double) extends Entity(id)
+
+case class Arc(override val id:(Int,Int), center:Point, start:Point, end:Point,
+    direction:Short) extends Entity(id)
+
+// Point where a dimension should be written
+case class DimPoint(x:Double, y:Double, z:Double)
 
 // SolidWorks 2D Constraints
 sealed trait Constraint
@@ -83,27 +95,41 @@ case class VerticalConstraint(line:Line) extends Constraint
 // <sw2DConstraint type="swConstraintType_DISTANCE">
 case class DistanceConstraint(point1:Point, point2:Point) extends
 	Constraint
+	
+// <sw2DConstraint type="swConstraintType_DIAMETER">
+case class DiameterConstraint(circle:Circle) extends Constraint
+
+// <sw2DConstraint type="swConstraintType_SAMERADII">
+case class EqualSize(entity1:Entity, entity2:Entity) extends
+	Constraint
 
 // ProE 2D Dimensions
-sealed abstract class Dimension(val id:String, val value:Double)
+sealed abstract class Dimension(val id:String, val value:Double, val loc:DimPoint)
 
 // <sw2DDimension ID="D0" type="swLinearDimension" Value="100.0">
 case class LineDim(override val id:String, override val value:Double,
-	ent1:Entity, ent2:Entity) extends	Dimension(id, value)
+	override val loc:DimPoint, ent1:Entity, ent2:Entity)
+	extends	Dimension(id, value, loc)
 
 // <sw2DDimension ID="D0" type="swDiameterDimension" Value="100.0">
-case class DiameterDim(override val id:String, override val value:Double,
-	ent1:Entity, ent2:Entity) extends	Dimension(id, value)
+case class DiamDim(override val id:String, override val value:Double,
+	override val loc:DimPoint, ent:Entity) extends	Dimension(id, value, loc)
 
 // <sw2DDimension ID="D0" type="swHorLinearDimension" Value="100.0">
 case class HorizontalLineDim(override val id:String, override val value:Double,
-	ent1:Entity, ent2:Entity) extends	Dimension(id, value)
+	override val loc:DimPoint, ent1:Entity, ent2:Entity) 
+	extends	Dimension(id, value, loc)
 
 // <sw2DDimension ID="D0" type="swRadialDimension" Value="100.0">
 case class RadialDim(override val id:String, override val value:Double,
-	ent1:Entity, ent2:Entity) extends	Dimension(id, value)
+	override val loc:DimPoint, ent:Entity) extends	Dimension(id, value, loc)
 
 // <sw2DDimension ID="D0" type="swVertLinearDimension" Value="100.0">
 case class VerticalLineDim(override val id:String, override val value:Double,
-	ent1:Entity, ent2:Entity) extends	Dimension(id, value)
+	override val loc:DimPoint, ent1:Entity, ent2:Entity) 
+	extends	Dimension(id, value, loc)
 
+// <sw2DDimension ID="D0" type="swAngularDimension" Value="100.0">
+case class AngleDim(override val id:String, override val value:Double,
+    override val loc:DimPoint, ent1:Entity, ent2:Entity) 
+    extends Dimension(id, value, loc)

@@ -1,5 +1,4 @@
 package psconv
-import psconv._
 import pxmlparser._
 import pro2dtosw._
 import java.io.File
@@ -26,7 +25,8 @@ object MainApp
 		}
 		if(!swsection.isEmpty) {
 			println
-			val filename = "Sketch_" + swsection.name + ".xml"
+			val filename = "Sketch_" + swsection.name + ".xml" //default
+			//val filename = "sw_" + pfile.getName() //output xml has similar name to input xml
 			val dirpath = outputDirPath(pfile)
 			new File(dirpath).mkdirs
 			val sfilepath = dirpath + File.separator + filename
