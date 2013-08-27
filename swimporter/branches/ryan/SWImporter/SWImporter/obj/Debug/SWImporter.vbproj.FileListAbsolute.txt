@@ -9,3 +9,25 @@ C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImport
 C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.exe
 C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.xml
 C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.pdb
+C:\Users\Owner\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SWImporter.exe
+C:\Users\Owner\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SWImporter.pdb
+C:\Users\Owner\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SWImporter.xml
+C:\Users\Owner\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SolidWorks.Interop.sldworks.dll
+C:\Users\Owner\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SolidWorks.Interop.swconst.dll
+C:\Users\Owner\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Owner\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.Resources.resources
+C:\Users\Owner\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.vbproj.GenerateResource.Cache
+C:\Users\Owner\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.exe
+C:\Users\Owner\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.xml
+C:\Users\Owner\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.pdb
+C:\Users\Owner\SkyDrive\UMass\REU 2012\SWImporter\SWImporter\bin\Debug\SWImporter.exe
+C:\Users\Owner\SkyDrive\UMass\REU 2012\SWImporter\SWImporter\bin\Debug\SWImporter.pdb
+C:\Users\Owner\SkyDrive\UMass\REU 2012\SWImporter\SWImporter\bin\Debug\SWImporter.xml
+C:\Users\Owner\SkyDrive\UMass\REU 2012\SWImporter\SWImporter\bin\Debug\SolidWorks.Interop.sldworks.dll
+C:\Users\Owner\SkyDrive\UMass\REU 2012\SWImporter\SWImporter\bin\Debug\SolidWorks.Interop.swconst.dll
+C:\Users\Owner\SkyDrive\UMass\REU 2012\SWImporter\SWImporter\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Owner\SkyDrive\UMass\REU 2012\SWImporter\SWImporter\obj\Debug\SWImporter.Resources.resources
+C:\Users\Owner\SkyDrive\UMass\REU 2012\SWImporter\SWImporter\obj\Debug\SWImporter.vbproj.GenerateResource.Cache
+C:\Users\Owner\SkyDrive\UMass\REU 2012\SWImporter\SWImporter\obj\Debug\SWImporter.exe
+C:\Users\Owner\SkyDrive\UMass\REU 2012\SWImporter\SWImporter\obj\Debug\SWImporter.xml
+C:\Users\Owner\SkyDrive\UMass\REU 2012\SWImporter\SWImporter\obj\Debug\SWImporter.pdb

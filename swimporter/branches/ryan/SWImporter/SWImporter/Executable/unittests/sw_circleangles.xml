@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sw2DSection name="S2D0001">
+  <sw2DEntities>
+    <sw2DEntity ID="(4,0)" type="swSketchARC">
+      <Center>
+        <sw2DPt ID="(4,1)" x ="54.75" y ="111.01" z ="0.0" />
+      </Center>
+      <Radius>
+        <swRadius>28.79</swRadius>
+      </Radius>
+    </sw2DEntity>
+    <sw2DEntity ID="(15,0)" type="swSketchLINE">
+      <Start>
+        <sw2DPt ID="(15,1)" x ="110.84" y ="118.94" z ="0.0" />
+      </Start>
+      <End>
+        <sw2DPt ID="(15,2)" x ="100.82" y ="107.3" z ="0.0" />
+      </End>
+    </sw2DEntity>
+    <sw2DEntity ID="(16,0)" type="swSketchPOINT">
+      <Start>
+        <sw2DPt ID="(16,0)" x ="0.0" y ="0.0" z ="0.0" />
+      </Start>
+    </sw2DEntity>
+  </sw2DEntities>
+  <sw2DConstraints>
+  </sw2DConstraints>
+  <sw2DDimensions>
+    <sw2DDimension ID="D0" type="swDiameterDimension" Value="57.58">
+      <entityRefs>
+        <entityRef ID="(4,0)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="25.6" y="132.62" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D1" type="swHorLinearDimension" Value="54.75">
+      <entityRefs>
+        <entityRef ID="(16,0)" />
+        <entityRef ID="(4,1)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="25.24" y="110.93" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D2" type="swVertLinearDimension" Value="111.01">
+      <entityRefs>
+        <entityRef ID="(16,0)" />
+        <entityRef ID="(4,1)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="52.22" y="56.81" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D21" type="swHorLinearDimension" Value="100.82">
+      <entityRefs>
+        <entityRef ID="(16,0)" />
+        <entityRef ID="(15,2)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="47.89" y="105.11" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D22" type="swVertLinearDimension" Value="107.3">
+      <entityRefs>
+        <entityRef ID="(16,0)" />
+        <entityRef ID="(15,2)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="100.01" y="53.17" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D23" type="swHorLinearDimension" Value="110.84">
+      <entityRefs>
+        <entityRef ID="(16,0)" />
+        <entityRef ID="(15,1)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="52.9" y="116.75" z="0.0" />
+      </location>
+    </sw2DDimension>
+  </sw2DDimensions>
+</sw2DSection>
