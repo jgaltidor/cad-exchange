@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sw2DSection name="S2D0002">
+  <sw2DEntities>
+    <sw2DEntity ID="(16,0)" type="swSketchSpline">
+      <PointArray>
+        <sw2DPt ID="(16,1)" x ="10.0" y ="10.0" z ="0.0" />
+        <sw2DPt ID="(16,2)" x ="21.27" y ="150.04" z ="0.0" />
+        <sw2DPt ID="(16,3)" x ="100.0" y ="73.48" z ="0.0" />
+      </PointArray>
+    </sw2DEntity>
+    <sw2DEntity ID="(17,0)" type="swSketchPOINT">
+      <Start>
+        <sw2DPt ID="(17,0)" x ="0.0" y ="0.0" z ="0.0" />
+      </Start>
+    </sw2DEntity>
+  </sw2DEntities>
+  <sw2DConstraints>
+  </sw2DConstraints>
+  <sw2DDimensions>
+    <sw2DDimension ID="D14" type="swHorLinearDimension" Value="10.0">
+      <entityRefs>
+        <entityRef ID="(17,0)" />
+        <entityRef ID="(16,1)" />
+      </entityRefs>
+    </sw2DDimension>
+    <sw2DDimension ID="D15" type="swVertLinearDimension" Value="10.0">
+      <entityRefs>
+        <entityRef ID="(17,0)" />
+        <entityRef ID="(16,1)" />
+      </entityRefs>
+    </sw2DDimension>
+    <sw2DDimension ID="D18" type="swVertLinearDimension" Value="73.48">
+      <entityRefs>
+        <entityRef ID="(17,0)" />
+        <entityRef ID="(16,3)" />
+      </entityRefs>
+    </sw2DDimension>
+    <sw2DDimension ID="D19" type="swHorLinearDimension" Value="100.0">
+      <entityRefs>
+        <entityRef ID="(17,0)" />
+        <entityRef ID="(16,3)" />
+      </entityRefs>
+    </sw2DDimension>
+  </sw2DDimensions>
+</sw2DSection>
