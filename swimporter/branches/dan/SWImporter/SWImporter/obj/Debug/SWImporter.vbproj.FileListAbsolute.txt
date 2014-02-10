@@ -1,0 +1,22 @@
+C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.Resources.resources
+C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.vbproj.GenerateResource.Cache
+C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SWImporter.exe
+C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SWImporter.pdb
+C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SWImporter.xml
+C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SolidWorks.Interop.sldworks.dll
+C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SolidWorks.Interop.swconst.dll
+C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.exe
+C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.xml
+C:\Documents and Settings\John\My Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.pdb
+C:\Users\keith_000\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.exe
+C:\Users\keith_000\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.xml
+C:\Users\keith_000\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.pdb
+C:\Users\keith_000\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SWImporter.exe
+C:\Users\keith_000\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SWImporter.pdb
+C:\Users\keith_000\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SWImporter.xml
+C:\Users\keith_000\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\keith_000\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.Resources.resources
+C:\Users\keith_000\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\obj\Debug\SWImporter.vbproj.GenerateResource.Cache
+C:\Users\keith_000\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SolidWorks.Interop.sldworks.dll
+C:\Users\keith_000\Documents\Visual Studio 2008\Projects\SWImporter\SWImporter\bin\Debug\SolidWorks.Interop.swconst.dll
