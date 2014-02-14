@@ -43,7 +43,7 @@ void processPrtFile(string proe_exe, string partfilepath) {
 	string cmd = "\"";
 	cmd += proe_exe;
 	cmd += "\" "; // creates Pro/E Window
-	// cmd += "\" -g:no_graphics -i:rpc_input "; // does not create Pro/E Window
+	//cmd += "\" -g:no_graphics -i:rpc_input "; // does not create Pro/E Window
 	cmd += partfilepath;
 	cmd += " +"; cmd += partName;
 	cmd += " +"; cmd += outDir;
@@ -96,8 +96,9 @@ extern "C" int user_initialize(int argc, char* argv[])
     }
 	// Read command line arguments
 	char* partnameArg = getProtkArg(argv, 1);
-	char* outDir = getProtkArg(argv, 2);
-	
+	//char* outDir = getProtkArg(argv, 2);
+	char* outDir = "pxml";
+
 	ProTKPrintf("Part name: %s\n", partnameArg);
 	ProTKPrintf("Output directory for XML files: %s\n", outDir);
 

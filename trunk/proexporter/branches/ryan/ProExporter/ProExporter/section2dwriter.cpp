@@ -530,12 +530,19 @@ ProError proexporter::Section2dWriter::writeDimension(int dimensionId) {
 		"proexporter::Section2dWriter::writeDimension()", status);
 	if(status != PRO_TK_NO_ERROR) return status;
 
+	Pro2dPnt location;
+	status = ProSecdimLocationGet(section, dimensionId, location);
+	errchk("ProSecdimLocationGet()", 
+		"proexporter::Section2dWriter::writeDimension()", status);
+	if(status != PRO_TK_NO_ERROR) return status;
+
 	// Write start tag
 	out.printlnf("<pro2dDimension id=\"%d\" type=\"%s\" value=\"%4.2lf\" >",
 		dimensionId, typeStr.c_str(), value);
 	out.incrementTabs();
 	this->writeEntityReferences(ref_ids, n_ref_ids);
 	this->writePointTypes(p_types, n_ref_ids);
+	this->writeLocation(location);
 	out.decrementTabs();
 	// Write end tag
 	out.printlnf("</pro2dDimension>");
@@ -547,6 +554,13 @@ ProError proexporter::Section2dWriter::writeDimension(int dimensionId) {
 	return status;
 }
 
+void proexporter::Section2dWriter::writeLocation(Pro2dPnt& location) {
+	out.printlnf("<location>");
+	out.incrementTabs();
+	writePro2dPnt(location);
+	out.decrementTabs();
+	out.printlnf("</location>");
+}
 
 void proexporter::Section2dWriter::writeEntityReferences(const int* ref_ids, const int n_ref_ids) {
 	out.printlnf("<entityReferences>");

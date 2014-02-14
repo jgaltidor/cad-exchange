@@ -26,6 +26,7 @@ public:
 	ProError writeDimensions();
 	ProError writeDimension(int dimensionId);
 	
+	void writeLocation(Pro2dPnt& location);
 	void writeEntityReferences(const int* ref_ids, const int n_ref_ids);
 	void writeEntityReference(const int ref_id);
 	void writePointTypes(const ProSectionPointType* ref_ids, const int n_ref_ids);

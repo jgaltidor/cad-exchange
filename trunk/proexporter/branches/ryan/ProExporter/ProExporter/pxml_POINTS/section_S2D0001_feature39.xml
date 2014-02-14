@@ -1,0 +1,122 @@
+<pro2dsection name="S2D0001">
+  <pro2dEntities>
+    <pro2dEntity id="0" isProjection="true" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="0.00" y="0.00" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="0.00" y="-100.00" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="1" isProjection="true" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="0.00" y="0.00" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="-100.00" y="0.00" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="2" isProjection="false" type="PRO_2D_POINT" >
+      <pnt>
+        <Pro2dPnt x="51.29" y="100.98" />
+      </pnt>
+    </pro2dEntity>
+    <pro2dEntity id="3" isProjection="false" type="PRO_2D_POINT" >
+      <pnt>
+        <Pro2dPnt x="148.54" y="137.32" />
+      </pnt>
+    </pro2dEntity>
+    <pro2dEntity id="6" isProjection="false" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="72.67" y="44.35" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="103.66" y="190.75" />
+      </end2>
+    </pro2dEntity>
+  </pro2dEntities>
+  <pro2dConstraints>
+  </pro2dConstraints>
+  <pro2dDimensions>
+    <pro2dDimension id="0" type="PRO_TK_DIM_LINE_POINT" value="51.29" >
+      <entityReferences>
+        <entityReference id ="0" />
+        <entityReference id ="2" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_CENTER" />
+      </pointTypes>
+    </pro2dDimension>
+    <pro2dDimension id="1" type="PRO_TK_DIM_LINE_POINT" value="100.98" >
+      <entityReferences>
+        <entityReference id ="1" />
+        <entityReference id ="2" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_CENTER" />
+      </pointTypes>
+    </pro2dDimension>
+    <pro2dDimension id="2" type="PRO_TK_DIM_LINE_POINT" value="137.32" >
+      <entityReferences>
+        <entityReference id ="1" />
+        <entityReference id ="3" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_CENTER" />
+      </pointTypes>
+    </pro2dDimension>
+    <pro2dDimension id="3" type="PRO_TK_DIM_LINE_POINT" value="148.54" >
+      <entityReferences>
+        <entityReference id ="0" />
+        <entityReference id ="3" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_CENTER" />
+      </pointTypes>
+    </pro2dDimension>
+    <pro2dDimension id="4" type="PRO_TK_DIM_LINES_ANGLE" value="101.95" >
+      <entityReferences>
+        <entityReference id ="6" />
+        <entityReference id ="1" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+    </pro2dDimension>
+    <pro2dDimension id="5" type="PRO_TK_DIM_LINE_POINT" value="44.35" >
+      <entityReferences>
+        <entityReference id ="1" />
+        <entityReference id ="6" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+    </pro2dDimension>
+    <pro2dDimension id="6" type="PRO_TK_DIM_LINE_POINT" value="72.67" >
+      <entityReferences>
+        <entityReference id ="0" />
+        <entityReference id ="6" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+    </pro2dDimension>
+    <pro2dDimension id="7" type="PRO_TK_DIM_LINE_POINT" value="103.66" >
+      <entityReferences>
+        <entityReference id ="0" />
+        <entityReference id ="6" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_END" />
+      </pointTypes>
+    </pro2dDimension>
+  </pro2dDimensions>
+</pro2dsection>
