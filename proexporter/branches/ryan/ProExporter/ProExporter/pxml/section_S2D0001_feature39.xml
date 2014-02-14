@@ -1,0 +1,432 @@
+<pro2dsection name="S2D0001">
+  <pro2dEntities>
+    <pro2dEntity id="0" isProjection="true" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="0.00" y="0.00" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="0.00" y="-100.00" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="1" isProjection="true" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="0.00" y="0.00" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="-100.00" y="0.00" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="4" isProjection="false" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="30.00" y="30.00" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="30.00" y="60.00" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="5" isProjection="false" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="30.00" y="60.00" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="70.01" y="80.01" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="6" isProjection="false" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="70.01" y="80.01" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="90.00" y="110.00" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="7" isProjection="false" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="90.00" y="110.00" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="190.01" y="110.00" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="8" isProjection="false" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="190.01" y="110.00" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="210.01" y="80.00" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="9" isProjection="false" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="210.01" y="80.00" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="250.00" y="60.00" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="10" isProjection="false" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="250.00" y="60.00" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="250.00" y="30.00" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="11" isProjection="false" type="PRO_2D_LINE" >
+      <end1>
+        <Pro2dPnt x="250.00" y="30.00" />
+      </end1>
+      <end2>
+        <Pro2dPnt x="30.00" y="30.00" />
+      </end2>
+    </pro2dEntity>
+    <pro2dEntity id="14" isProjection="false" type="PRO_2D_CIRCLE" >
+      <center>
+        <Pro2dPnt x="41.93" y="92.94" />
+      </center>
+      <radius>15.70</radius>
+    </pro2dEntity>
+    <pro2dEntity id="17" isProjection="false" type="PRO_2D_CIRCLE" >
+      <center>
+        <Pro2dPnt x="227.34" y="92.94" />
+      </center>
+      <radius>15.70</radius>
+    </pro2dEntity>
+  </pro2dEntities>
+  <pro2dConstraints>
+    <pro2dConstraint id="1" type="PRO_CONSTRAINT_SAME_POINT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="4" />
+        <entityReference id ="5" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_END" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="2" type="PRO_CONSTRAINT_SAME_POINT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="5" />
+        <entityReference id ="6" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_END" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="3" type="PRO_CONSTRAINT_SAME_POINT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="6" />
+        <entityReference id ="7" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_END" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="5" type="PRO_CONSTRAINT_SAME_POINT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="7" />
+        <entityReference id ="8" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_END" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="6" type="PRO_CONSTRAINT_SAME_POINT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="8" />
+        <entityReference id ="9" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_END" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="7" type="PRO_CONSTRAINT_SAME_POINT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="9" />
+        <entityReference id ="10" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_END" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="10" type="PRO_CONSTRAINT_SAME_POINT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="4" />
+        <entityReference id ="11" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_START" />
+        <pointType type ="PRO_ENT_END" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="11" type="PRO_CONSTRAINT_SAME_POINT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="10" />
+        <entityReference id ="11" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_END" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="0" type="PRO_CONSTRAINT_VERTICAL_ENT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="4" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="4" type="PRO_CONSTRAINT_HORIZONTAL_ENT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="7" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="8" type="PRO_CONSTRAINT_VERTICAL_ENT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="10" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="12" type="PRO_CONSTRAINT_HORIZONTAL_ENT" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="11" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="13" type="PRO_CONSTRAINT_EQUAL_RADII" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="14" />
+        <entityReference id ="17" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+    </pro2dConstraint>
+    <pro2dConstraint id="9" type="PRO_CONSTRAINT_EQUAL_SEGMENTS" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="10" />
+        <entityReference id ="4" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+    </pro2dConstraint>
+  </pro2dConstraints>
+  <pro2dDimensions>
+    <pro2dDimension id="0" type="PRO_TK_DIM_LINE" value="30.00" >
+      <entityReferences>
+        <entityReference id ="4" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="19.63" y="40.14" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="1" type="PRO_TK_DIM_LINE_POINT" value="30.00" >
+      <entityReferences>
+        <entityReference id ="0" />
+        <entityReference id ="4" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="9.37" y="24.54" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="3" type="PRO_TK_DIM_LINES_ANGLE" value="116.57" >
+      <entityReferences>
+        <entityReference id ="4" />
+        <entityReference id ="5" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="27.25" y="55.96" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="7" type="PRO_TK_DIM_LINE" value="100.01" >
+      <entityReferences>
+        <entityReference id ="7" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="121.35" y="111.35" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="8" type="PRO_TK_DIM_LINES_ANGLE" value="123.69" >
+      <entityReferences>
+        <entityReference id ="7" />
+        <entityReference id ="8" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="171.71" y="105.91" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="12" type="PRO_TK_DIM_LINE" value="220.00" >
+      <entityReferences>
+        <entityReference id ="11" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="71.93" y="-9.51" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="14" type="PRO_TK_DIM_LINE_POINT" value="30.00" >
+      <entityReferences>
+        <entityReference id ="1" />
+        <entityReference id ="11" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="18.22" y="13.58" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="15" type="PRO_TK_DIM_LINES_ANGLE" value="123.68" >
+      <entityReferences>
+        <entityReference id ="6" />
+        <entityReference id ="7" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="97.36" y="96.51" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="17" type="PRO_TK_DIM_LINES_ANGLE" value="116.57" >
+      <entityReferences>
+        <entityReference id ="9" />
+        <entityReference id ="10" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="229.50" y="57.37" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="19" type="PRO_TK_DIM_DIA" value="31.40" >
+      <entityReferences>
+        <entityReference id ="14" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="9.68" y="108.03" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="20" type="PRO_TK_DIM_LINE_POINT" value="11.93" >
+      <entityReferences>
+        <entityReference id ="4" />
+        <entityReference id ="14" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_CENTER" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="30.33" y="96.39" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="21" type="PRO_TK_DIM_LINE_POINT" value="17.06" >
+      <entityReferences>
+        <entityReference id ="7" />
+        <entityReference id ="14" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_CENTER" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="46.52" y="100.21" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="22" type="PRO_TK_DIM_LINE_POINT" value="22.66" >
+      <entityReferences>
+        <entityReference id ="10" />
+        <entityReference id ="17" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_CENTER" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="233.04" y="86.96" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="23" type="PRO_TK_DIM_LINE_POINT" value="17.06" >
+      <entityReferences>
+        <entityReference id ="7" />
+        <entityReference id ="17" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_CENTER" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="226.91" y="100.21" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="24" type="PRO_TK_DIM_LINE_POINT" value="30.00" >
+      <entityReferences>
+        <entityReference id ="7" />
+        <entityReference id ="8" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_END" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="202.21" y="93.74" />
+      </location>
+    </pro2dDimension>
+    <pro2dDimension id="27" type="PRO_TK_DIM_LINE_POINT" value="80.00" >
+      <entityReferences>
+        <entityReference id ="7" />
+        <entityReference id ="11" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_START" />
+      </pointTypes>
+      <location>
+        <Pro2dPnt x="248.57" y="68.74" />
+      </location>
+    </pro2dDimension>
+  </pro2dDimensions>
+</pro2dsection>

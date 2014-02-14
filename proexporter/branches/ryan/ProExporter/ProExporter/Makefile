@@ -14,7 +14,7 @@ EXE_DLL = $(EXEBASENAME).dll
 
 # Pro/Toolkit Source & Machine Loadpoint  (EXTERNAL USE - DEFAULT)
 # altidor: Had to add quotes around paths w/ spaces for -I flag
-PROTOOL_SRC = C:/Program Files/proeWildfire 4.0/protoolkit
+PROTOOL_SRC = C:/Program Files (x86)/proeWildfire 4.0/protoolkit
 PROTOOL_SYS = $(PROTOOL_SRC)/$(PRO_MACHINE_TYPE)
 
 # Pro/Toolkit Source & Machine Loadpoint  (PTC INTERNAL USE)

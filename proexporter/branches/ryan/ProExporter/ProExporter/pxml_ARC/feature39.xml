@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PRO_E_FEATURE_TREE  AppName="Pro/ENGINEER" AppVersion="Wildfire_4.0"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:noNamespaceSchemaLocation="ProTKFeature.xsd" type="compound">
+  <PRO_E_FEATURE_TYPE type="int">PRO_FEAT_CURVE</PRO_E_FEATURE_TYPE>
+  <PRO_E_CURVE_TYPE type="int">0</PRO_E_CURVE_TYPE>
+  <PRO_E_STD_FEATURE_NAME type="wstring"></PRO_E_STD_FEATURE_NAME>
+  <PRO_E_STD_SECTION type="compound">
+    <PRO_E_STD_SEC_METHOD type="int">0</PRO_E_STD_SEC_METHOD>
+    <PRO_E_SEC_USE_SKETCH type="selection"></PRO_E_SEC_USE_SKETCH>
+    <PRO_E_STD_SEC_SELECT type="compound">
+      <PRO_E_STD_CURVE_COLLECTION_APPL type="collection">
+        <PRO_XML_COLLECTION type="curve">
+        </PRO_XML_COLLECTION>
+      </PRO_E_STD_CURVE_COLLECTION_APPL>
+      <PRO_E_SURF_CHAIN_CMPND type="compound">
+        <PRO_E_SURF_CHAIN_METHOD type="int">0</PRO_E_SURF_CHAIN_METHOD>
+        <PRO_E_SURF_CHAIN_REF_SURFS type="array">
+          <PRO_E_SURF_CHAIN_SURF type="compound">
+            <PRO_E_SURF_CHAIN_REF type="selection"></PRO_E_SURF_CHAIN_REF>
+          </PRO_E_SURF_CHAIN_SURF>
+        </PRO_E_SURF_CHAIN_REF_SURFS>
+      </PRO_E_SURF_CHAIN_CMPND>
+      <PRO_E_STD_SEC_BLN_VERTS type="selection"></PRO_E_STD_SEC_BLN_VERTS>
+    </PRO_E_STD_SEC_SELECT>
+    <PRO_E_STD_SEC_SETUP_PLANE type="compound">
+      <PRO_E_STD_SEC_PLANE type="selection">
+        <PRO_XML_REFERENCE type="reference">
+          <PRO_XML_REFERENCE_OWNER type="owner">ARC.prt</PRO_XML_REFERENCE_OWNER>
+          <PRO_XML_REFERENCE_ID type="id">4</PRO_XML_REFERENCE_ID>
+          <PRO_XML_REFERENCE_TYPE type="protype">PRO_SURFACE</PRO_XML_REFERENCE_TYPE>
+        </PRO_XML_REFERENCE>
+      </PRO_E_STD_SEC_PLANE>
+      <PRO_E_STD_SEC_PLANE_VIEW_DIR type="int">1</PRO_E_STD_SEC_PLANE_VIEW_DIR>
+      <PRO_E_STD_SEC_PLANE_ORIENT_DIR type="int">4</PRO_E_STD_SEC_PLANE_ORIENT_DIR>
+      <PRO_E_STD_SEC_PLANE_ORIENT_REF type="selection">
+        <PRO_XML_REFERENCE type="reference">
+          <PRO_XML_REFERENCE_OWNER type="owner">ARC.prt</PRO_XML_REFERENCE_OWNER>
+          <PRO_XML_REFERENCE_ID type="id">2</PRO_XML_REFERENCE_ID>
+          <PRO_XML_REFERENCE_TYPE type="protype">PRO_SURFACE</PRO_XML_REFERENCE_TYPE>
+        </PRO_XML_REFERENCE>
+      </PRO_E_STD_SEC_PLANE_ORIENT_REF>
+    </PRO_E_STD_SEC_SETUP_PLANE>
+    <PRO_E_SKETCHER type="pointer">**</PRO_E_SKETCHER>
+  </PRO_E_STD_SECTION>
+  <PRO_E_ATTRIBUTES type="compound">
+    <PRO_E_DTMCRV_DISPLAY_HATCH type="int">0</PRO_E_DTMCRV_DISPLAY_HATCH>
+    <PRO_E_DTMCRV_HATCH_DENSITY type="double">0.000000</PRO_E_DTMCRV_HATCH_DENSITY>
+  </PRO_E_ATTRIBUTES>
+</PRO_E_FEATURE_TREE>
