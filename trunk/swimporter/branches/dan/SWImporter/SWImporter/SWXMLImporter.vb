@@ -39,7 +39,7 @@ Module SWXMLImporter
 		'turns the display box pop ups for dimensions back to its original setting
 		swApp.SetUserPreferenceToggle(swUserPreferenceToggle_e.swInputDimValOnCreate, DimValuePreset)
 		swApp.ExitApp()	'close SolidWorks
-		Console.WriteLine("Program completed successfully")
+            Console.WriteLine("Program completed successfully")
 	End Sub
 
 
@@ -119,7 +119,7 @@ End Module
     '--------------------------------test using the SW spline XML
 Module Tester
 	Sub Main()
-            SWXMLImporter.Main(New String() {"..\..\splineTest.sldprt", "..\..\unittests\Sketch_S2D0002.xml"})
+            SWXMLImporter.Main(New String() {"..\..\Sketch_TEST.sldprt", "..\..\unittests\Sketch_TEST.xml"})
 	End Sub
 End Module
 
