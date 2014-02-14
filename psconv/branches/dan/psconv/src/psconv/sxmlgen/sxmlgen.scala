@@ -97,16 +97,16 @@ class SWXMLGenerator(output:TabPrintStream) extends util.TabPrintWrapper
 	def writeSpline(spline:Spline):Unit = {
 	  val points = spline.points
 	  var i = 0
-	  println("<PointArray>")
+	  println("<Points>")
 	  incrementTabs
 	  
 	  while (i < points.length){
-	      writePoint(points(i))
+	      writeEntity(points(i))
 	      i += 1
 	  }
 	  
 	  decrementTabs
-	  println("</PointArray>")
+	  println("</Points>")
 	}
 	//------------------------------------------------------------
 	def writeConstraint(con:Constraint):Unit = {

@@ -261,17 +261,14 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 	}	
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------
-	def createSpline(node:Node):Spline = {
-
-	    val nPoints = node \ "pro2dEntities" \ "pro2dEntity" \ "n_points"
-	  
+	def createSpline(node:Node):Spline = {    	    
 	    val points =
 	      (for(n <- node \ "point_arr" \ "Pro2dPnt") yield createPoint(n)).toList
 
 	    val startTangAngle = createAngle(getUniqueNode(node \ "start_tang_angle" \ "ProAngle"))
 		val endTangAngle = createAngle(getUniqueNode(node \ "end_tang_angle" \ "ProAngle"))
 
-	    Spline(getId(node), 3, points, startTangAngle, endTangAngle)
+	    Spline(getId(node), points.length, points, startTangAngle, endTangAngle)
 	}//------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	/** Expecting XML node with format:
