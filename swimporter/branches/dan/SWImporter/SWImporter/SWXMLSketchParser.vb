@@ -236,8 +236,6 @@ Public Class SWXMLSketchParser
 	'    </Start>
 	'  </sw2DEntity>
         Private Function createPoint(ByRef node As XPathNavigator) As SketchPoint
-            'Console.WriteLine(node)
-
             Dim spNode As XPathNavigator = GetUniqueNode(node.Select("Start/sw2DPt"))
             Dim sp As Double() = GetCoord(spNode)
             Dim id As String = GetEid(node)
@@ -257,33 +255,44 @@ Public Class SWXMLSketchParser
             Return pt
         End Function
 
-        '--------------------------------------------------------------------------------
+        'Expects an XML node with the following format:
+        '<sw2DEntity ID="(16,0)" type="swSketchSpline">
+        '  <Points>
+        '    <sw2DEntity ID="(16,1)" type="swSketchPOINT">
+        '      <Start>
+        '        <sw2DPt ID="(16,1)" x ="10.0" y ="10.0" z ="0.0" />
+        '      </Start>
+        '    </sw2DEntity>
+        '    <sw2DEntity ID="(16,2)" type="swSketchPOINT">
+        '      <Start>
+        '        <sw2DPt ID="(16,2)" x ="21.27" y ="150.04" z ="0.0" />
+        '      </Start>
+        '    </sw2DEntity>
+        '    <sw2DEntity ID="(16,3)" type="swSketchPOINT">
+        '      <Start>
+        '        <sw2DPt ID="(16,3)" x ="100.0" y ="73.48" z ="0.0" />
+        '      </Start>
+        '    </sw2DEntity>
+        '  </Points>
+        '</sw2DEntity>
         Private Function createSpline(ByRef node As XPathNavigator) As SketchSegment
-
-            Dim i As Integer
-            i = 0
-            For Each refnode As XPathNavigator In node.Select("PointArray/sw2DPt")
-                i = i + 1
+            Dim pointList As List(Of Double) = New List(Of Double)
+            For Each refnode As XPathNavigator In node.Select("Points/sw2DEntity")
+                Dim sketchPoint As SketchPoint = createPoint(refnode)
+                pointList.Add(sketchPoint.X)
+                pointList.Add(sketchPoint.Y)
+                pointList.Add(sketchPoint.Z)
             Next
-
-            Dim points(i) As SketchPoint
-
-            Dim j As Integer
-            j = 0
-
-            For Each refnode As XPathNavigator In node.Select("PointArray/sw2DPt")
-                Console.WriteLine(j)
-                points(j) = createPoint(refnode) 'this line is the problem.
-                j = j + 1
-            Next
-
-            Console.WriteLine("past 2 for loop")
-
-            Dim sketch As SketchManager = swModel.SketchManager
-            Dim spline As ISketchPoint = sketch.CreateSpline(points)
-
             Dim id As String = GetEid(node)
+
+            Dim points() As Double = pointList.ToArray
+
             Console.WriteLine("Creating spline for entity " + id.ToString())
+            Dim sketch As SketchManager = swModel.SketchManager
+            Dim spline As SketchSegment = sketch.CreateSpline2(points, True)
+
+            'Add id mappings for entities created
+            addEidMapping(id, spline)
 
             Return spline
             '----------------------------------------------------------------------------------------------
@@ -317,13 +326,14 @@ Public Class SWXMLSketchParser
 		swModel.ClearSelection2(True) 'Clear selection
 		'First, select each entities referred to by the constraint
 		Dim firstEnt As Object = Nothing
-		For Each refnode As XPathNavigator In node.Select("entityRefs/entityRef")
-			Dim entity As Object = eidmap(GetEid(refnode))
-			SelectEnt(entity)
-			If firstEnt Is Nothing Then
-				firstEnt = entity
-			End If
-		Next
+            For Each refnode As XPathNavigator In node.Select("entityRefs/entityRef")
+                'Console.WriteLine(GetEid(refnode))          'changes here
+                Dim entity As Object = eidmap(GetEid(refnode))
+                SelectEnt(entity)
+                If firstEnt Is Nothing Then
+                    firstEnt = entity
+                End If
+            Next
 		Dim displaydim As IDisplayDimension = Nothing
 		If firstEnt IsNot Nothing Then
 			Dim c As Double() = GetCoords(firstEnt)
