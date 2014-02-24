@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sw2DSection name="TEST">
+  <sw2DEntities>
+    <sw2DEntity ID="(3,0)" type="swSketchSpline">
+      <Points>
+        <sw2DEntity ID="(3,1)" type="swSketchPOINT">
+          <Start>
+            <sw2DPt ID="(3,1)" x ="-191.54" y ="-177.13" z ="0.0" />
+          </Start>
+        </sw2DEntity>
+        <sw2DEntity ID="(3,2)" type="swSketchPOINT">
+          <Start>
+            <sw2DPt ID="(3,2)" x ="-123.74" y ="85.6" z ="0.0" />
+          </Start>
+        </sw2DEntity>
+        <sw2DEntity ID="(3,3)" type="swSketchPOINT">
+          <Start>
+            <sw2DPt ID="(3,3)" x ="-35.6" y ="-150.01" z ="0.0" />
+          </Start>
+        </sw2DEntity>
+        <sw2DEntity ID="(3,4)" type="swSketchPOINT">
+          <Start>
+            <sw2DPt ID="(3,4)" x ="67.8" y ="95.77" z ="0.0" />
+          </Start>
+        </sw2DEntity>
+        <sw2DEntity ID="(3,5)" type="swSketchPOINT">
+          <Start>
+            <sw2DPt ID="(3,5)" x ="140.69" y ="-158.49" z ="0.0" />
+          </Start>
+        </sw2DEntity>
+        <sw2DEntity ID="(3,6)" type="swSketchPOINT">
+          <Start>
+            <sw2DPt ID="(3,6)" x ="191.54" y ="-77.13" z ="0.0" />
+          </Start>
+        </sw2DEntity>
+      </Points>
+    </sw2DEntity>
+    <sw2DEntity ID="(4,0)" type="swSketchPOINT">
+      <Start>
+        <sw2DPt ID="(4,0)" x ="0.0" y ="0.0" z ="0.0" />
+      </Start>
+    </sw2DEntity>
+  </sw2DEntities>
+  <sw2DConstraints>
+  </sw2DConstraints>
+  <sw2DDimensions>
+    <sw2DDimension ID="D0" type="swVertLinearDimension" Value="177.13">
+      <entityRefs>
+        <entityRef ID="(4,0)" />
+        <entityRef ID="(3,1)" />
+      </entityRefs>
+    </sw2DDimension>
+    <sw2DDimension ID="D1" type="swHorLinearDimension" Value="191.54">
+      <entityRefs>
+        <entityRef ID="(4,0)" />
+        <entityRef ID="(3,1)" />
+      </entityRefs>
+    </sw2DDimension>
+    <sw2DDimension ID="D10" type="swVertLinearDimension" Value="77.13">
+      <entityRefs>
+        <entityRef ID="(4,0)" />
+        <entityRef ID="(3,6)" />
+      </entityRefs>
+    </sw2DDimension>
+    <sw2DDimension ID="D11" type="swHorLinearDimension" Value="191.54">
+      <entityRefs>
+        <entityRef ID="(4,0)" />
+        <entityRef ID="(3,6)" />
+      </entityRefs>
+    </sw2DDimension>
+  </sw2DDimensions>
+</sw2DSection>
