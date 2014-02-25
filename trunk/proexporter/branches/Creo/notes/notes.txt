@@ -1,0 +1,102 @@
+Notes
+======
+
+
+
+Visual Studio Debug Configuration Settings
+--------------------------------------------
+Based on p. 13 of Protoolkit_GSG.pdf:
+
+SETTING                      | VALUE
+Command line                 | nmake /f Makefile
+Output                       | proexporter.exe
+Clean/rebuild all commands   | nmake /f Makefile clean
+Include search path          | C:\Program Files\proeWildfire 4.0\protoolkit\includes
+
+
+Environment Variables and User Macros
+-------------------------------------
+With user macros and environment variables, I was able to keep all of
+my environment variable settings all local to the project.
+User macros can be dereferenced in "Configuration Properties"
+Environment variables defined outside of "Configuration Properties"
+can be dereferenced in "Configuration Properties",
+BUT Environment variables defined inside of "Configuration Properties"
+(In the Environment text area)
+CANNOT be dereferenced in "Configuration Properties".
+To use a user macro as environment variable in the debuggee,
+just do something like create a MYVAR macro AND
+enter "MYVAR=$(MYVAR)" in the Environment text area.
+
+To create a new macro, you create a User Macro in a
+new Property Sheet.
+Creating a Property Sheet and a User Macro is explained here:
+http://msdn.microsoft.com/en-us/library/a4xbdz1e%28VS.80%29.aspx
+
+
+Instructions for Setting up existing proexporter project on a new machine
+--------------------------------------------------------------------------
+1) Open Debugging Window by, In the "Solution Explorer":
+Right Click proexporter -> Properties -> "Configuration Properties" -> Debugging
+
+2)
+In the "Command Arguments" textbox enter:
+"$(PROE)\bin\proe.exe" unittests\example_draft.prt.1
+
+3)
+In the Environment textbox enter:
+PRO_COMM_MSG_EXE=$(PROE)\$(MACHINE)\obj\pro_comm_msg.exe
+
+
+Specifying Command Line Arguments in Visual Studio
+--------------------------------------------------
+Right Click Project (proexporter) in Solution Explorer ->
+  Properties -> "Configuration Properties" -> Debugging -> "Command Arguments"
+Then you can "almost copy" the arguments passed to proexporter in the runproexporter.bat
+scripts.
+Specifically, on the line starting with "proexporter ", just copy the remaining text
+on the line after the "proexporter " to the "Command Arguments" text box.
+I said "almost copy" instead of just "copy" because %PROE% need to be
+changed to $(PROE) in the text box.
+
+
+Using "proexporter.dll" instead of "proexporter.exe"
+-----------------------------------------------------
+Instead of running "proexporter.exe",
+to have Pro/E just load "proexporter.dll",
+rename "no_protk.dat" to "protk.dat".
+If want to use "proexporter.exe",
+you should rename "protk.dat" to something else.
+
+
+Had to update the following variables in the Makefile
+-----------------------------------------------------
+# File Name
+MAKEFILENAME = Makefile
+
+# Executable names
+EXE = proexporter.exe
+EXE_DLL = proexporter.dll
+
+# Pro/Toolkit Source & Machine Loadpoint  (EXTERNAL USE - DEFAULT)
+PROTOOL_SRC = C:/Program Files/proeWildfire 4.0/protoolkit
+
+# Include File Paths
+# Had to add quotes around paths w/ spaces for -I flag
+INCS = -I. -I"$(PROTOOL_SRC)/protk_appls/includes" -I"$(PROTOOL_SRC)/includes"
+
+# Compiler Flags
+# Added /EHsc flag to CCFLAGS because Visual C++ needs this flag
+# to compile C++ code that can throw exceptions
+CCFLAGS = -c -fp:precise -DUSE_ANSI_IOSTREAMS -D_USE_32BIT_TIME_T /EHsc /Zi
+
+# Libraries
+# Had to add quotes around paths that could contain spaces
+PTCLIBS = "$(PROTOOL_SYS)/obj/protoolkit.lib"
+PTCLIBS_DLL = "$(PROTOOL_SYS)/obj/protk_dll.lib"
+
+Enabling use of debugger
+------------------------
+Add /Zi flag to CCFLAGS
+Add /debug flag to LINK commands
+

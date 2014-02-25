@@ -1,0 +1,17 @@
+Pro/TOOLKIT User Guide documents the necessary contents of the element tree
+for each type of feature that can be created programmatically.
+It does this through two types of description:
+ * Feature element tree
+ * Feature element table
+
+Important typedefs
+--------------------
+// in ProSizeConst.h
+typedef wchar_t	ProComment[PRO_COMMENT_SIZE];
+
+// in ProObjects.h
+typedef               double  Pro2dPnt[2]; /* 2-dimensional point */
+typedef               double  Pro3dPnt[3]; /* 3-dimensional point */
+typedef               double  ProAngle; /* angular type (in radians) */
+typedef               double  ProArea;
+

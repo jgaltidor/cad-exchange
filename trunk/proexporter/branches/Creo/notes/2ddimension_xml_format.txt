@@ -1,0 +1,11 @@
+
+<pro2dDimension id="7" type="PRO_TK_DIM_LINE" value="4.7" >
+  <entityReferences>
+    <entityReference id ="2" />
+	<entityReference id ="5" />
+  </entityReferences>
+  <pointTypes>
+    <pointType type="PRO_ENT_WHOLE" />
+	<pointType type="PRO_ENT_START" />
+  </pointTypes>
+</pro2dDimension>
