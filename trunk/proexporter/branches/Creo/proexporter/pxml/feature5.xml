@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PRO_E_FEATURE_TREE  AppName="Pro/ENGINEER" AppVersion="2.0"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:noNamespaceSchemaLocation="ProTKFeature.xsd" type="compound">
+  <PRO_E_FEATURE_TYPE type="int">PRO_FEAT_DATUM</PRO_E_FEATURE_TYPE>
+  <PRO_E_STD_FEATURE_NAME type="wstring">FRONT</PRO_E_STD_FEATURE_NAME>
+  <PRO_E_DTMPLN_CONSTRAINTS type="array">
+    <PRO_E_DTMPLN_CONSTRAINT type="compound">
+      <PRO_E_DTMPLN_CONSTR_TYPE type="int">9</PRO_E_DTMPLN_CONSTR_TYPE>
+      <PRO_E_DTMPLN_CONSTR_REF type="selection"></PRO_E_DTMPLN_CONSTR_REF>
+      <PRO_E_DTMPLN_CONSTR_REF_OFFSET type="double">0.000000</PRO_E_DTMPLN_CONSTR_REF_OFFSET>
+      <PRO_E_DTMPLN_CONSTR_REF_ANGLE type="double">0.000000</PRO_E_DTMPLN_CONSTR_REF_ANGLE>
+      <PRO_E_DTMPLN_SEC_IND type="int">0</PRO_E_DTMPLN_SEC_IND>
+      <PRO_E_DTMPLN_OFF_CSYS type="int">0</PRO_E_DTMPLN_OFF_CSYS>
+      <PRO_E_DTMPLN_OFF_CSYS_OFFSET type="double">0.000000</PRO_E_DTMPLN_OFF_CSYS_OFFSET>
+    </PRO_E_DTMPLN_CONSTRAINT>
+  </PRO_E_DTMPLN_CONSTRAINTS>
+  <PRO_E_DTMPLN_FLIP_DIR type="int">0</PRO_E_DTMPLN_FLIP_DIR>
+  <PRO_E_DTMPLN_FIT type="compound">
+    <PRO_E_DTMPLN_FIT_TYPE type="int">-1</PRO_E_DTMPLN_FIT_TYPE>
+    <PRO_E_DTMPLN_FIT_REF type="selection"></PRO_E_DTMPLN_FIT_REF>
+    <PRO_E_DTMPLN_FIT_DTM_RAD type="double">0.000000</PRO_E_DTMPLN_FIT_DTM_RAD>
+    <PRO_E_DTMPLN_FIT_OUTLINE type="pointer">**</PRO_E_DTMPLN_FIT_OUTLINE>
+  </PRO_E_DTMPLN_FIT>
+</PRO_E_FEATURE_TREE>
