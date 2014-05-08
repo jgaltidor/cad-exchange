@@ -54,27 +54,32 @@ class SWXMLGenerator(output:TabPrintStream) extends util.TabPrintWrapper
 	}
 
 	def writeEntity(ent:Entity):Unit = {
-		printf("<sw2DEntity ID=\"%s\" type=\"%s\">", ent.id, typstr(ent))
-		println
-		incrementTabs
 		ent match {
 			case e:Point => writePointEntity(e)
 			case e:Line => writeLine(e)
-			case e: Spline => writeSpline(e)
+			case e:Spline => writeSpline(e)
+			case e:Circle => writeCircle(e)
+			case e:Arc => writeArc(e)
 		}
-		decrementTabs
-		println("</sw2DEntity>")
 	}
 	
 	def writePointEntity(pnt:Point):Unit = {
+		printf("<sw2DEntity ID=\"%s\" type=\"%s\">", pnt.id, typstr(pnt))
+		println
+		incrementTabs
 		println("<Start>")
 		incrementTabs
 		writePoint(pnt)
 		decrementTabs
 		println("</Start>")
+		decrementTabs
+		println("</sw2DEntity>")
 	}
 	
 	def writeLine(line:Line):Unit = {
+		printf("<sw2DEntity ID=\"%s\" type=\"%s\">", line.id, typstr(line))
+		println
+		incrementTabs
 		println("<Start>")
 		incrementTabs
 		writePoint(line.start)
@@ -85,6 +90,8 @@ class SWXMLGenerator(output:TabPrintStream) extends util.TabPrintWrapper
 		writePoint(line.end)
 		decrementTabs
 		println("</End>")
+		decrementTabs
+		println("</sw2DEntity>")
 	}
 	
 	def writePoint(pnt:Point):Unit = {
@@ -93,8 +100,65 @@ class SWXMLGenerator(output:TabPrintStream) extends util.TabPrintWrapper
 			double2Double(pnt.z))
 		println
 	}
+	
+	//Not sure about this
+	def writeCircle(circle:Circle):Unit = {
+		printf("<sw2DEntity ID=\"%s\" type=\"%s\">", circle.id, typstr(circle))
+		println
+		incrementTabs
+		println("<Center>")
+		incrementTabs
+		writePoint(circle.middle)
+		decrementTabs
+		println("</Center>")
+		println("<Radius>")
+		incrementTabs
+		println("<swRadius>" + circle.radius + "</swRadius>")
+		decrementTabs
+		println("</Radius>")
+		decrementTabs
+		println("</sw2DEntity>")
+	}
+	
+	def writeArc(arc:Arc):Unit = {
+		printf("<sw2DEntity ID=\"%s\" type=\"%s\" direction=\"%s\" >", 
+		    arc.id, typstr(arc), String.valueOf(arc.direction))
+		println
+		incrementTabs
+		println("<Center>")
+		incrementTabs
+		writePoint(arc.center)
+		decrementTabs
+		println("</Center>")
+		println("<Start>")
+		incrementTabs
+		writePoint(arc.start)
+		decrementTabs
+		println("</Start>")
+		println("<End>")
+		incrementTabs
+		writePoint(arc.end)
+		decrementTabs
+		println("</End>")
+		decrementTabs
+		println("</sw2DEntity>")
+	}
+	
+	def writeDimPoint(pnt:DimPoint):Unit = {
+		println("<location>")
+		incrementTabs
+		printf("<swDimPoint x=\"%s\" y=\"%s\" z=\"%s\" />", double2Double(pnt.x),
+		    double2Double(pnt.y), double2Double(pnt.z))
+		println
+		decrementTabs
+		println("</location>")
+	}	
+	
 	//-------------------------------------------------------------
 	def writeSpline(spline:Spline):Unit = {
+	  printf("<sw2DEntity ID=\"%s\" type=\"%s\">", spline.id, typstr(spline))
+	  println
+	  incrementTabs
 	  val points = spline.points
 	  var i = 0
 	  println("<Points>")
@@ -107,8 +171,11 @@ class SWXMLGenerator(output:TabPrintStream) extends util.TabPrintWrapper
 	  
 	  decrementTabs
 	  println("</Points>")
+	  decrementTabs
+	  println("</sw2DEntity>")
 	}
 	//------------------------------------------------------------
+	
 	def writeConstraint(con:Constraint):Unit = {
 		printf("<sw2DConstraint type=\"%s\">", typstr(con))
 		println
@@ -124,6 +191,7 @@ class SWXMLGenerator(output:TabPrintStream) extends util.TabPrintWrapper
 		println
 		incrementTabs
 		writeEntityRefs(entityRefs(dim))
+		writeDimPoint(dim.loc)
 		decrementTabs
 		println("</sw2DDimension>")
 	}
@@ -151,24 +219,28 @@ object SWXMLGenerator
 
 	def typstr(ent:Entity) = ent match {
 		case e:Point => "swSketchPOINT"
-		case e:Line => "swSketchLINE"
-		  //---------------------------------------------------
+		case e:Line => "swSketchLINE"		 
 		case e:Spline => "swSketchSpline"
-	}//-------------------------------------------------------
+		case e:Circle => "swSketchARC"
+		case e:Arc => "swSketchARC"
+	}
 	
 	def typstr(con:Constraint) = con match {
 		case c:Coincident => "swConstraintType_COINCIDENT"
 		case c:HorizontalConstraint => "swConstraintType_HORIZONTAL"
 		case c:VerticalConstraint => "swConstraintType_VERTICAL"
 		case c:DistanceConstraint => "swConstraintType_DISTANCE"
+		case c:DiameterConstraint => "swConstraintType_DIAMETER"
+		case c:EqualSize => "swConstraintType_EQUALSIZE"
 	}
 
 	def typstr(dim:Dimension) = dim match {
 		case d:LineDim => "swLinearDimension"
-		case d:DiameterDim => "swDiameterDimension"
+		case d:DiamDim => "swDiameterDimension"
 		case d:HorizontalLineDim => "swHorLinearDimension"
 		case d:RadialDim => "swRadialDimension"
 		case d:VerticalLineDim => "swVertLinearDimension"
+		case d:AngleDim => "swAngularDimension"
 	}
 	
 	def entityRefs(con:Constraint):List[EntityID] = con match {
@@ -178,22 +250,26 @@ object SWXMLGenerator
 		case VerticalConstraint(line) => List(line.id)
 		case DistanceConstraint(point1, point2) =>
 			List(point1.id, point2.id)
+		case DiameterConstraint(circle) => List(circle.id)
+		case EqualSize(ent1, ent2) =>
+		  	List(ent1.id, ent2.id)
 	}
 
 	def entityRefs(dim:Dimension):List[EntityID] = dim match {
-		case LineDim(_, _, ent1, ent2) =>
+		case LineDim(_, _, _, ent1, ent2) =>
 			List(ent1.id, ent2.id)
-		case DiameterDim(_, _, ent1, ent2) =>
+		case DiamDim(_, _, _, circle) =>
+			List(circle.id)
+		case HorizontalLineDim(_, _, _, ent1, ent2) =>
 			List(ent1.id, ent2.id)
-		case HorizontalLineDim(_, _, ent1, ent2) =>
+		case RadialDim(_, _, _, arc) =>
+			List(arc.id)
+		case VerticalLineDim(_, _, _, ent1, ent2) =>
 			List(ent1.id, ent2.id)
-		case RadialDim(_, _, ent1, ent2) =>
-			List(ent1.id, ent2.id)
-		case VerticalLineDim(_, _, ent1, ent2) =>
+		case AngleDim(_, _, _, ent1, ent2) =>
 			List(ent1.id, ent2.id)
 	}
 }
-
 
 object Tester
 {

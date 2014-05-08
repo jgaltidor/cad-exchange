@@ -56,11 +56,11 @@ object MathFun
 	
 	def isXAxis(line:Line2D):Boolean =
 		(line.p1 == Point2D(0, 0) &&
-		line.p2.y == 0 && line.p2.x != 0)
+		line.p2.x != 0 && line.p2.y == 0)
 
 	def isYAxis(line:Line2D):Boolean =
 		(line.p1 == Point2D(0, 0) &&
-		line.p2.x == 0 && line.p2.y != 0)
+		line.p2.y != 0 && line.p2.x == 0)
 }
 
 

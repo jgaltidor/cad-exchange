@@ -50,6 +50,8 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 		case "PRO_2D_POINT" => createPointEnt(node)
 		case "PRO_2D_LINE"  => createLine(node)
 		case "PRO_2D_SPLINE" => createSpline(node)
+		case "PRO_2D_CIRCLE" => createCircle(node)
+		case "PRO_2D_ARC" => createArc(node)
 		case enttype =>
 			throw new ParserException("Unknown entity type: " + enttype)
 	}
@@ -59,6 +61,8 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 		case "PRO_CONSTRAINT_HORIZONTAL_ENT" => createHorizontalConstraint(node)
 		case "PRO_CONSTRAINT_VERTICAL_ENT" => createVerticalConstraint(node)
 		case "PRO_CONSTRAINT_PNT_ON_ENT" => createPntOnEnt(node)
+		case "PRO_CONSTRAINT_EQUAL_RADII" => createEqualRadii(node)
+		case "PRO_CONSTRAINT_EQUAL_SEGMENTS" => createEqualSegments(node)
 		case contype =>
 			throw new ParserException("Unknown constraint type: " + contype)
 	}
@@ -66,19 +70,22 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 	def createDimension(node:Node):Dimension = getAttrVal(node, "type") match {
 		case "PRO_TK_DIM_LINE" => createLineDim(node)
 		case "PRO_TK_DIM_LINE_POINT" => createLinePointDim(node)
+				case "PRO_TK_DIM_DIA" => createDiamDim(node)
+		case "PRO_TK_DIM_RAD" => createRadiusDim(node)
+		case "PRO_TK_DIM_LINES_ANGLE" => createAngleDim(node)
 		case dimtype =>
 			throw new ParserException("Unknown dimension type: " + dimtype)
 	}
 
 	/** Expecting XML node with format:
-<pre>
-< pro2dEntity id="7" isProjection="true" type="PRO_2D_POINT">
-  < pnt>
-    < Pro2dPnt x="3.5" y="4.7" />
-  < / pnt>
-< / pro2dEntity>
-</pre>
-  */
+	<pre>
+		< pro2dEntity id="7" isProjection="true" type="PRO_2D_POINT">
+  			<pnt>
+    			< Pro2dPnt x="3.5" y="4.7"/>
+  			</pnt>
+		</pro2dEntity>
+	</pre>
+	 */
 	def createPointEnt(node:Node):PointEntity = {
 		val point = createPoint(getUniqueNode(node \ "pnt" \ "Pro2dPnt"))
 		PointEntity(getId(node), point)
@@ -90,26 +97,88 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 		val y = getAttrVal(node, "y").toDouble
 		Point(x, y)
 	}
+	
+	/** Expecting XML node with format <radius>0.50</radius> */
+	def createRadius(node:Node):Double = node.text.toDouble
 
 	/** Expecting XML node with format:
-<pre>
-  < pro2dEntity id ="7" isProjection="true" type="PRO_2D_LINE">
-    < end1>
-      < Pro2dPnt x="3.5" y="4.7" />
-    < / end1>
-    < end2>
-      < Pro2dPnt x="3.5" y="4.7" />
-    < / end2>
-  < / pro2dEntity>
-</pre>
-  */
+	<start_angle>
+        <ProAngle radians="0.40" />
+      </start_angle>
+      <end_angle>
+        <ProAngle radians="1.42" />
+      </end_angle>
+	  */
+	def createAngle(node:Node):Angle = {
+		val angle = getAttrVal(node, "radians").toDouble
+		Angle(angle)
+	}	
+	
+	/** Expecting XML node with format:
+	<pre>
+  		<pro2dEntity id ="7" isProjection="true" type="PRO_2D_LINE">
+    		<end1>
+      			<Pro2dPnt x="3.5" y="4.7"/>
+    		</end1>
+    		<end2>
+      			<Pro2dPnt x="3.5" y="4.7"/>
+    		</end2>
+  		</pro2dEntity>
+	</pre>
+	*/
+		
 	def createLine(node:Node):Line = {
 		val start = createPoint(getUniqueNode(node \ "end1" \ "Pro2dPnt"))
 		val end = createPoint(getUniqueNode(node \ "end2" \ "Pro2dPnt"))
 		val isProj = getAttrVal(node, "isProjection").toBoolean
 		Line(getId(node), isProj, start, end)
 	}
-
+	
+	/** Expecting XML node with format:
+	<pre>
+		<pro2dEntity id="4" isProjection="false" type="PRO_2D_CIRCLE" >
+			<center>
+				<Pro2dPnt x="0.50" y="0.50" />
+			</center>
+			<radius>0.50</radius>
+		</pro2dEntity>
+	</pre>
+	*/
+	def createCircle(node:Node):Circle = {
+		val middle = createPoint(getUniqueNode(node \ "center" \ "Pro2dPnt"))
+		val rad = createRadius(getUniqueNode(node))
+		Circle(getId(node), rad, middle)
+	}
+	
+	/** Expecting XML node with format:
+    <pro2dEntity id="16" isProjection="false" type="PRO_2D_ARC" >
+      <center>
+        <Pro2dPnt x="10.00" y="15.00" />
+      </center>
+      <start_angle>
+        <ProAngle radians="0.40" />
+      </start_angle>
+      <end_angle>
+        <ProAngle radians="1.42" />
+      </end_angle>
+      <radius>12.92</radius>
+    </pro2dEntity>
+	*/
+	def createArc(node:Node):Arc = {
+		val middle = createPoint(getUniqueNode(node \ "center" \ "Pro2dPnt"))
+		val start_angle = createAngle(getUniqueNode(node \"start_angle" \ "ProAngle"))
+		val end_angle = createAngle(getUniqueNode(node \"end_angle" \ "ProAngle"))
+		val rad = createRadius(getUniqueNode(node))
+		val startPt = createArcEndpoint(middle, start_angle, rad)
+		val endPt = createArcEndpoint(middle, end_angle, rad)
+		Arc(getId(node), middle, start_angle, end_angle, rad, startPt, endPt)
+	}
+	
+	def createArcEndpoint(middle:Point, angle:Angle, radius:Double):Point = {
+		val ptX = middle.x + radius * Math.cos(angle.radians)
+		val ptY = middle.y + radius * Math.sin(angle.radians)
+		Point(ptX, ptY)
+	}
 
 	def createEntityObj(entId:Int, pointType:String):EntityObj = {
 		val entNode = getUniqueNode(
@@ -119,6 +188,15 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 			case (Line(_, _, start, _), "PRO_ENT_START") => start
 			case (Line(_, _, _, end), "PRO_ENT_END") => end
 			case (PointEntity(_, pnt), "PRO_ENT_WHOLE") => pnt
+			case (circle:Circle, "PRO_ENT_WHOLE") => circle
+			case (Circle(_, _, center), "PRO_ENT_CENTER") => center
+			case (arc:Arc, "PRO_ENT_WHOLE") => arc
+			case (Arc(_, center, _, _, _, _, _), "PRO_ENT_CENTER") => center
+			case (Arc(_, _, start_angle, _, _, _, _), "PRO_ENT_START_ANGLE") => start_angle
+			case (Arc(_, _, _, end_angle, _, _, _), "PRO_ENT_END_ANGLE") => end_angle
+			// for arcs, create start and end points?
+			case (Arc(_, _, _, _, _, start, _), "PRO_ENT_START") => start
+			case (Arc(_, _, _, _, _, _, end), "PRO_ENT_END") => end
 			case (Spline(_, _, points, _, _), "PRO_ENT_START") => points(0)
 			case (Spline(_, nPoints, points, _, _), "PRO_ENT_END") => points(nPoints - 1)
 			case (spline:Spline, "PRO_ENT_WHOLE") => spline
@@ -129,19 +207,19 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 	}
 
 	/** Expecting XML node with format:
-<pre>
-< pro2dConstraint id="0" type="PRO_CONSTRAINT_SAME_POINT">
-  < entityReferences>
-    < entityReference id ="4" />
-    < entityReference id ="5" />
-  < / entityReferences>
-  < pointTypes>
-    < pointType type ="PRO_ENT_END" />
-    < pointType type ="PRO_ENT_START" />
-  < / pointTypes>
-< / pro2dConstraint>
-</pre>
-  */
+	<pre>
+		<pro2dConstraint id="0" type="PRO_CONSTRAINT_SAME_POINT">
+		  <entityReferences>
+		    <entityReference id ="4"/>
+		    <entityReference id ="5"/>
+		  </entityReferences>
+		  <pointTypes>
+		    <pointType type ="PRO_ENT_END"/>
+		    <pointType type ="PRO_ENT_START"/>
+		  </pointTypes>
+		</pro2dConstraint>
+	</pre>
+	*/
 	def createSamePoint(node:Node):SamePoint = {
 		val refs = node \ "entityReferences" \ "entityReference"
 		assert(refs.length == 2)
@@ -155,17 +233,17 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 	}
 
 	/** Expecting XML node with format:
-<pre>
-< pro2dConstraint id="4" type="PRO_CONSTRAINT_HORIZONTAL_ENT">
-  < entityReferences>
-    < entityReference id ="4" />
-  < / entityReferences>
-  < pointTypes>
-    < pointType type ="PRO_ENT_WHOLE" />
-  < / pointTypes>
-< / pro2dConstraint>
-</pre>
-  */
+	<pre>
+		<pro2dConstraint id="4" type="PRO_CONSTRAINT_HORIZONTAL_ENT">
+		  <entityReferences>
+		    <entityReference id ="4"/>
+		  </entityReferences>
+		  <pointTypes>
+		    <pointType type ="PRO_ENT_WHOLE"/>
+		  </pointTypes>
+		</pro2dConstraint>
+	</pre>
+	*/
 	def createHorizontalConstraint(node:Node):HorizontalConstraint = {
 		val refs = node \ "entityReferences" \ "entityReference"
 		assert(refs.length == 1)
@@ -177,17 +255,17 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 	}
 
 	/** Expecting XML node with format:
-<pre>
-< pro2dConstraint id="4" type="PRO_CONSTRAINT_VERTICAL_ENT">
-  < entityReferences>
-    < entityReference id ="4" />
-  < / entityReferences>
-  < pointTypes>
-    < pointType type ="PRO_ENT_WHOLE" />
-  < / pointTypes>
-< / pro2dConstraint>
-</pre>
-  */
+	<pre>
+		<pro2dConstraint id="4" type="PRO_CONSTRAINT_VERTICAL_ENT">
+		  <entityReferences>
+		    <entityReference id ="4"/>
+		  </entityReferences>
+		  <pointTypes>
+		    <pointType type ="PRO_ENT_WHOLE"/>
+		  </pointTypes>
+		</pro2dConstraint>
+	</pre>
+	*/
 	def createVerticalConstraint(node:Node):VerticalConstraint = {
 		val refs = node \ "entityReferences" \ "entityReference"
 		assert(refs.length == 1)
@@ -199,32 +277,19 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 	}
 	
 	/** Expecting XML node with format:
-	<start_angle>
-        <ProAngle radians="0.40" />
-      </start_angle>
-      <end_angle>
-        <ProAngle radians="1.42" />
-      </end_angle>
-	  */
-	def createAngle(node:Node):Angle = {
-		val angle = getAttrVal(node, "radians").toDouble
-		Angle(angle)
-	}
-
-	/** Expecting XML node with format:
-<pre>
-< pro2dConstraint id="8" type="PRO_CONSTRAINT_PNT_ON_ENT">
-  < entityReferences>
-    < entityReference id ="0" />
-    < entityReference id ="4" />
-  < / entityReferences>
-  < pointTypes>
-    < pointType type ="PRO_ENT_WHOLE" />
-    < pointType type ="PRO_ENT_START" />
-  < / pointTypes>
-< / pro2dConstraint>
-</pre>
-  */
+	<pre>
+		<pro2dConstraint id="8" type="PRO_CONSTRAINT_PNT_ON_ENT">
+		  <entityReferences>
+		    <entityReference id ="0"/>
+		    <entityReference id ="4"/>
+		  </entityReferences>
+		  <pointTypes>
+		    <pointType type ="PRO_ENT_WHOLE"/>
+		    <pointType type ="PRO_ENT_START"/>
+		  </pointTypes>
+		</pro2dConstraint>
+	</pre>
+	*/
 	def createPntOnEnt(node:Node):PntOnEnt = {
 		val refs = node \ "entityReferences" \ "entityReference"
 		assert(refs.length == 2)
@@ -236,19 +301,69 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 			getAttrVal(ptypes(1), "type")).asInstanceOf[Point]
 		PntOnEnt(getId(node), line, point)
 	}
+	
+	/** Expecting XML node with format:
+	<pre>
+		<pro2dConstraint id="0" type="PRO_CONSTRAINT_EQUAL_RADII" status="PRO_TK_CONSTRAINT_ENABLED">
+	      <entityReferences>
+	        <entityReference id ="4" />
+	        <entityReference id ="7" />
+	      </entityReferences>
+	      <pointTypes>
+	        <pointType type ="PRO_ENT_WHOLE" />
+	        <pointType type ="PRO_ENT_WHOLE" />
+	      </pointTypes>
+	    </pro2dConstraint>
+	</pre>
+	 */
+	def createEqualRadii(node:Node):EqualRadii = {
+	  val refs = node \ "entityReferences" \ "entityReference"
+	  assert(refs.length == 2)
+	  val ptypes = node \ "pointTypes" \ "pointType"
+	  assert(ptypes.length == 2)
+	  val circle1 = createEntityObj(getId(refs(0)),
+	      getAttrVal(ptypes(0), "type")).asInstanceOf[Circle]
+	  val circle2 = createEntityObj(getId(refs(1)),
+	      getAttrVal(ptypes(1), "type")).asInstanceOf[Circle]
+	  EqualRadii(getId(node), circle1, circle2)
+	}
+	
+	/**
+    <pro2dConstraint id="9" type="PRO_CONSTRAINT_EQUAL_SEGMENTS" status="PRO_TK_CONSTRAINT_ENABLED">
+      <entityReferences>
+        <entityReference id ="10" />
+        <entityReference id ="4" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+    </pro2dConstraint>
+	**/
+	def createEqualSegments(node:Node):EqualSegments = {
+	  val refs = node \ "entityReferences" \ "entityReference"
+	  assert(refs.length == 2)
+	  val ptypes = node \ "pointTypes" \ "pointType"
+	  assert(ptypes.length == 2)
+	  val line1 = createEntityObj(getId(refs(0)),
+	      getAttrVal(ptypes(0), "type")).asInstanceOf[Line]
+	  val line2 = createEntityObj(getId(refs(1)),
+	      getAttrVal(ptypes(1), "type")).asInstanceOf[Line]
+	  EqualSegments(getId(node), line1, line2)
+	}
 
 	/** Expecting XML node with format:
-<pre>
-< pro2dDimension id="1" type="PRO_TK_DIM_LINE" value="200.00" >
-  < entityReferences>
-    < entityReference id ="4" />
-  < / entityReferences>
-  < pointTypes>
-    < pointType type ="PRO_ENT_WHOLE" />
-  < / pointTypes>
-< / pro2dDimension>
-</pre>
-  */
+	<pre>
+	<pro2dDimension id="1" type="PRO_TK_DIM_LINE" value="200.00" >
+	  <entityReferences>
+	    <entityReference id ="4"/>
+	  </entityReferences>
+	  <pointTypes>
+	    <pointType type ="PRO_ENT_WHOLE"/>
+	  </pointTypes>
+	</pro2dDimension>
+	</pre>
+	*/
 	def createLineDim(node:Node):LineDim = {
 		val refs = node \ "entityReferences" \ "entityReference"
 		assert(refs.length == 1)
@@ -257,7 +372,36 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 		val line = createEntityObj(getId(refs(0)),
 			getAttrVal(ptypes(0), "type")).asInstanceOf[Line]
 		val dimValue = getAttrVal(node, "value").toDouble
-		LineDim(getId(node), dimValue, line)
+		val dimLoc = createPoint(getUniqueNode(node \ "location" \ "Pro2dPnt"))
+		LineDim(getId(node), dimValue, dimLoc, line)
+	}	
+	
+	/** Expecting XML node with format:
+	<pre>
+	<pro2dDimension id="3" type="PRO_TK_DIM_LINE_POINT" value="40.00" >
+		<entityReferences>
+			<entityReference id ="0" />
+			<entityReference id ="7" />
+		</entityReferences>
+		<pointTypes>
+			<pointType type ="PRO_ENT_WHOLE"/>
+			<pointType type ="PRO_ENT_START"/>
+		</pointTypes>
+	</pro2dDimension>
+	</pre>
+	*/
+	def createLinePointDim(node:Node):LinePointDim = {
+		val refs = node \ "entityReferences" \ "entityReference"
+		assert(refs.length == 2)
+		val ptypes = node \ "pointTypes" \ "pointType"
+		assert(ptypes.length == 2)
+		val line = createEntityObj(getId(refs(0)),
+			getAttrVal(ptypes(0), "type")).asInstanceOf[Line]
+		val point = createEntityObj(getId(refs(1)),
+			getAttrVal(ptypes(1), "type")).asInstanceOf[Point]
+		val dimValue = getAttrVal(node, "value").toDouble
+		val dimLoc = createPoint(getUniqueNode(node \ "location" \ "Pro2dPnt"))
+		LinePointDim(getId(node), dimValue, dimLoc, line, point)
 	}	
 	
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -270,33 +414,78 @@ class ProeXMLParser(file:File) extends Node2ProeFactory
 
 	    Spline(getId(node), points.length, points, startTangAngle, endTangAngle)
 	}//------------------------------------------------------------------------------------------------------------------------------------------------------
-
+	
 	/** Expecting XML node with format:
-<pre>
-< pro2dDimension id="3" type="PRO_TK_DIM_LINE_POINT" value="40.00" >
-	< entityReferences>
-		< entityReference id ="0" />
-		< entityReference id ="7" />
-	< / entityReferences>
-	< pointTypes>
-		< pointType type ="PRO_ENT_WHOLE" />
-		< pointType type ="PRO_ENT_START" />
-	< / pointTypes>
-< / pro2dDimension>
-</pre>
-  */
-	def createLinePointDim(node:Node):LinePointDim = {
+	<pre>
+	<pro2dDimension id="0" type="PRO_TK_DIM_DIA" value="1.00" >
+      <entityReferences>
+        <entityReference id ="4" />
+      </entityReferences>
+      <pointTypes>
+        <pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+    </pro2dDimension>
+	</pre>
+	*/
+	def createDiamDim(node:Node):DiamDim = {
+		val refs = node \ "entityReferences" \ "entityReference"
+		assert(refs.length == 1)
+		val ptypes = node \ "pointTypes" \ "pointType"
+		assert(ptypes.length == 1)
+		val circle = createEntityObj(getId(refs(0)),
+			getAttrVal(ptypes(0), "type")).asInstanceOf[Circle]
+		val dimValue = getAttrVal(node, "value").toDouble
+		val dimLoc = createPoint(getUniqueNode(node \ "location" \ "Pro2dPnt"))
+		DiamDim(getId(node), dimValue, dimLoc, circle)
+	}
+	
+	/** Expecting XML node with format:
+	<pro2dDimension id="8" type="PRO_TK_DIM_RAD" value="12.92" >
+	      <entityReferences>
+	        <entityReference id ="16" />
+	      </entityReferences>
+	      <pointTypes>
+	        <pointType type ="PRO_ENT_WHOLE" />
+	      </pointTypes>
+	    </pro2dDimension>
+	**/
+	def createRadiusDim(node:Node):RadiusDim = {
+		val refs = node \ "entityReferences" \ "entityReference"
+		assert(refs.length == 1)
+		val ptypes = node \ "pointTypes" \ "pointType"
+		assert(ptypes.length == 1)
+		val arc = createEntityObj(getId(refs(0)),
+			getAttrVal(ptypes(0), "type")).asInstanceOf[Arc]
+		val dimValue = getAttrVal(node, "value").toDouble
+		val dimLoc = createPoint(getUniqueNode(node \ "location" \ "Pro2dPnt"))
+		RadiusDim(getId(node), dimValue, dimLoc, arc)
+	}
+	
+	/** Expecting XML with format:
+	<pro2dDimension id="3" type="PRO_TK_DIM_LINES_ANGLE" value="45.00" >
+      	<entityReferences>
+        	<entityReference id ="4" />
+        	<entityReference id ="5" />
+      	</entityReferences>
+      <pointTypes>
+        	<pointType type ="PRO_ENT_WHOLE" />
+        	<pointType type ="PRO_ENT_WHOLE" />
+      </pointTypes>
+    </pro2dDimension>
+	 **/
+	def createAngleDim(node:Node):AngleDim = {
 		val refs = node \ "entityReferences" \ "entityReference"
 		assert(refs.length == 2)
 		val ptypes = node \ "pointTypes" \ "pointType"
 		assert(ptypes.length == 2)
-		val line = createEntityObj(getId(refs(0)),
+		val line1 = createEntityObj(getId(refs(0)),
 			getAttrVal(ptypes(0), "type")).asInstanceOf[Line]
-		val point = createEntityObj(getId(refs(1)),
-			getAttrVal(ptypes(1), "type")).asInstanceOf[Point]
+		val line2 = createEntityObj(getId(refs(1)),
+			getAttrVal(ptypes(1), "type")).asInstanceOf[Line]
 		val dimValue = getAttrVal(node, "value").toDouble
-		LinePointDim(getId(node), dimValue, line, point)
-	}
+		val dimLoc = createPoint(getUniqueNode(node \ "location" \ "Pro2dPnt"))
+		AngleDim(getId(node), dimValue, dimLoc, line1, line2)
+	}	
 }
 
 object Utils
@@ -323,7 +512,7 @@ object Utils
 		}
 
 	def getUniqueNode(seq:Seq[Node]):Node = {
-		val itr = seq.elements
+		val itr = seq.iterator
 		if(itr.hasNext) {
 			val node = itr.next
 			if(itr.hasNext)
@@ -331,7 +520,7 @@ object Utils
 			else
 				node
 		}
-		else throw new NoSuchNode(seq)
+		else	throw new NoSuchNode(seq)			
 	}
 }	
 
