@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sw2DSection name="ARC">
+  <sw2DEntities>
+    <sw2DEntity ID="(6,0)" type="swSketchARC" direction="1" >
+      <Center>
+        <sw2DPt ID="(6,1)" x ="-49.28" y ="0.0" z ="0.0" />
+      </Center>
+      <Start>
+        <sw2DPt ID="(6,2)" x ="-151.27206415287606" y ="-33.61890762406797" z ="0.0" />
+      </Start>
+      <End>
+        <sw2DPt ID="(6,3)" x ="-80.60717440593929" y ="102.71913280270556" z ="0.0" />
+      </End>
+    </sw2DEntity>
+    <sw2DEntity ID="(7,0)" type="swSketchPOINT">
+      <Start>
+        <sw2DPt ID="(7,0)" x ="0.0" y ="0.0" z ="0.0" />
+      </Start>
+    </sw2DEntity>
+  </sw2DEntities>
+  <sw2DConstraints>
+  </sw2DConstraints>
+  <sw2DDimensions>
+    <sw2DDimension ID="D0" type="swRadialDimension" Value="107.39">
+      <entityRefs>
+        <entityRef ID="(6,0)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="15.92" y="-105.32" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D1" type="swHorLinearDimension" Value="49.28">
+      <entityRefs>
+        <entityRef ID="(7,0)" />
+        <entityRef ID="(6,1)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="-30.78" y="-17.32" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D2" type="swVertLinearDimension" Value="33.54">
+      <entityRefs>
+        <entityRef ID="(7,0)" />
+        <entityRef ID="(6,2)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="-162.2" y="-18.21" z="0.0" />
+      </location>
+    </sw2DDimension>
+    <sw2DDimension ID="D3" type="swHorLinearDimension" Value="80.38">
+      <entityRefs>
+        <entityRef ID="(7,0)" />
+        <entityRef ID="(6,3)" />
+      </entityRefs>
+      <location>
+        <swDimPoint x="-46.33" y="85.47" z="0.0" />
+      </location>
+    </sw2DDimension>
+  </sw2DDimensions>
+</sw2DSection>
