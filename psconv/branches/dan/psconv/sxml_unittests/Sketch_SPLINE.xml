@@ -34,24 +34,36 @@
         <entityRef ID="(17,0)" />
         <entityRef ID="(16,1)" />
       </entityRefs>
+      <location>
+        <swDimPoint x="1.0" y="5.95" z="0.0" />
+      </location>
     </sw2DDimension>
     <sw2DDimension ID="D15" type="swVertLinearDimension" Value="10.0">
       <entityRefs>
         <entityRef ID="(17,0)" />
         <entityRef ID="(16,1)" />
       </entityRefs>
+      <location>
+        <swDimPoint x="-4.67" y="4.06" z="0.0" />
+      </location>
     </sw2DDimension>
     <sw2DDimension ID="D18" type="swVertLinearDimension" Value="73.48">
       <entityRefs>
         <entityRef ID="(17,0)" />
         <entityRef ID="(16,3)" />
       </entityRefs>
+      <location>
+        <swDimPoint x="84.47" y="35.8" z="0.0" />
+      </location>
     </sw2DDimension>
     <sw2DDimension ID="D19" type="swHorLinearDimension" Value="100.0">
       <entityRefs>
         <entityRef ID="(17,0)" />
         <entityRef ID="(16,3)" />
       </entityRefs>
+      <location>
+        <swDimPoint x="45.27" y="29.72" z="0.0" />
+      </location>
     </sw2DDimension>
   </sw2DDimensions>
 </sw2DSection>

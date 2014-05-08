@@ -25,6 +25,8 @@ trait OneToOneConv
 			case e:proe.Line => convLine(e)
 			case e:proe.PointEntity => convPointEntity(e)
 			case e:proe.Spline => convSpline(e)
+			case e:proe.Circle => convCircle(e)
+			case e:proe.Arc => convArc(e)
 		}
 
 	@throws(classOf[UnMappedElementException])
@@ -34,6 +36,8 @@ trait OneToOneConv
 			case c:proe.HorizontalConstraint => convHorizontalConstraint(c)
 			case c:proe.VerticalConstraint => convVerticalConstraint(c)
 			case c:proe.PntOnEnt => throw new UnMappedElementException(c)
+			case c:proe.EqualRadii => convEqualRadii(c)
+			case c:proe.EqualSegments => convEqualSegments(c)
 		}
 
 	@throws(classOf[UnMappedElementException])
@@ -41,6 +45,9 @@ trait OneToOneConv
 		dimension match {
 			case d:proe.LineDim => convLineDim(d)
 			case d:proe.LinePointDim => convLinePointDim(d)
+			case d:proe.DiamDim => convDiamDim(d)
+			case d:proe.RadiusDim => convRadiusDim(d)
+			case d:proe.AngleDim => convAngleDim(d)
 		}
 
 	// Abstract Methods
@@ -48,6 +55,10 @@ trait OneToOneConv
 	// converting entities
 
 	def convLine(line:proe.Line):sw.Line
+	
+	def convArc(arc:proe.Arc):sw.Arc
+	
+	def convCircle(circle:proe.Circle):sw.Circle
 	
 	//-----------------------------------------------------------------------------
 	def convSpline(spline:proe.Spline):sw.Spline
@@ -58,7 +69,9 @@ trait OneToOneConv
 	// converting non-entity point
 	def convPoint(pnt:proe.Point):sw.Point
 
-
+	// converting location points for dimensions
+	def convDimPoint(pnt:proe.Point):sw.DimPoint
+	
 	// converting constraints
 	def convSamePoint(con:proe.SamePoint):sw.Coincident
 
@@ -66,12 +79,22 @@ trait OneToOneConv
 
 	def convVerticalConstraint(con:proe.VerticalConstraint):sw.VerticalConstraint
 
+	def convEqualRadii(con:proe.EqualRadii):sw.EqualSize
+	
+	def convEqualSegments(con:proe.EqualSegments):sw.EqualSize
+
 
 	// converting dimensions
 
 	def convLineDim(dim:proe.LineDim):sw.LineDim
 	
 	def convLinePointDim(dim:proe.LinePointDim):sw.LineDim
+	
+	def convDiamDim(dim:proe.DiamDim):sw.DiamDim
+	
+	def convRadiusDim(dim:proe.RadiusDim):sw.RadialDim
+	
+	def convAngleDim(dim:proe.AngleDim):sw.AngleDim
 }
 
 
@@ -123,13 +146,12 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 		
 		// remaining proe section to convert
 		var remainingProSec = Pro2D(
-			prosec.entities    -- proSWEntPairs.map(_._1),
-			prosec.constraints -- proSWConPairs.map(_._1),
-			prosec.dimensions  -- proSWDimPairs.map(_._1)
+			prosec.entities filterNot (proSWEntPairs.map(_._1) contains),
+			prosec.constraints filterNot (proSWConPairs.map(_._1) contains),
+			prosec.dimensions  filterNot (proSWDimPairs.map(_._1) contains)
 		)
 		println(remainingProSec)
-		//println(outputSWSec)
-		
+				
 		// output SW section so far
 		var outputSWSec = SW2D(proSWEntPairs.map(_._2),
 			proSWConPairs.map(_._2), proSWDimPairs.map(_._2))
@@ -151,9 +173,7 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 		val convLinePointDimToAxesSec = new ConvLinePointDimToAxes
 		
 		val converters = List(convPntOnEntIntersectSec, convLinePointDimToAxesSec)
-
-		// val convPntOnEntIntersectSec = new ConvPntOnEntIntersect with LoggingConverter
-		// Utils.convertSubsection(remainingProSec, convPntOnEntIntersectSec) match {
+		
 		Utils.convertSubsection(remainingProSec, converters) match {
 			case Some((prosubsec, swsubsec)) =>
 				remainingProSec = remainingProSec -- prosubsec
@@ -179,13 +199,28 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 		else
 			throw new UnMappedElementException(line)
 	
+	//Newly added, not sure about rad or radius, getting error: not found: value radius
+	def convCircle(circle:proe.Circle) =
+		new sw.Circle(entId(circle), convPoint(circle.center), circle.radius)
+	
+	def convArc(arc:proe.Arc) = {
+		val middle = arc.center
+		val start = arc.start
+		val end = arc.end
+		new sw.Arc(entId(arc), convPoint(middle), convPoint(start), convPoint(end), 1)
+	}
+	
+	// converting dimension location points
+	def convDimPoint(pnt:proe.Point) =
+		new sw.DimPoint(pnt.x, pnt.y, defaultZ)
+	
 	//--------------------------------------------------------------------------------
 	def convSpline(spline:proe.Spline) ={
 		  
 	  val swpoints = spline.points.map(convPoint)
 	  new sw.Spline(entId(spline), swpoints)
 	 
-		} 
+	} 
 	//--------------------------------------------------------------------------------
 	
 	def convPointEntity(epnt:proe.PointEntity) = convPoint(epnt.point)
@@ -206,17 +241,37 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 	def convVerticalConstraint(con:proe.VerticalConstraint) =
 		new sw.VerticalConstraint(convLine(con.line))
 
+	def convEqualRadii(con:proe.EqualRadii) =
+		new sw.EqualSize(convCircle(con.circle1), convCircle(con.circle2))
+	
+	def convEqualSegments(con:proe.EqualSegments) =
+		new sw.EqualSize(convLine(con.line1), convLine(con.line2))
+		
+	//What about adding diameter constraint? It doesn't exist in Pro/E but does in SW
+
+	
 	// converting dimensions
 
 	def convLineDim(dim:proe.LineDim) =
-		new sw.LineDim(dimId(dim), dim.value,
+		new sw.LineDim(dimId(dim), dim.value, convDimPoint(dim.loc),
 			convPoint(dim.line.start), convPoint(dim.line.end))
 
 	def convLinePointDim(dim:proe.LinePointDim) =
-		new sw.LineDim(dimId(dim), dim.value,
+		new sw.LineDim(dimId(dim), dim.value, convDimPoint(dim.loc),
 			convLine(dim.line), convPoint(dim.point))
 			
-
+	def convDiamDim(dim:proe.DiamDim) = 
+		new sw.DiamDim(dimId(dim), dim.value, convDimPoint(dim.loc),
+			convCircle(dim.circle))
+	
+	def convRadiusDim(dim:proe.RadiusDim) =
+		new sw.RadialDim(dimId(dim), dim.value, convDimPoint(dim.loc),
+		    convArc(dim.arc))
+	
+	def convAngleDim(dim:proe.AngleDim) =
+		new sw.AngleDim(dimId(dim), dim.value, convDimPoint(dim.loc),
+		    convLine(dim.line1), convLine(dim.line2))
+	
 	/** Converts subsections based on the INTERSECT rule */
 	class ConvPntOnEntIntersect extends Converter
 	{
@@ -272,11 +327,11 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 
 		def convertLinePointDimToAxes(dim:proe.LinePointDim):Option[sw.Dimension] =
 			if(isXAxis(dim.line))
-				Some(new sw.VerticalLineDim(dimId(dim), dim.value,
+				Some(new sw.VerticalLineDim(dimId(dim), dim.value, convDimPoint(dim.loc),
 					origin, convPoint(dim.point)))
 			else if(isYAxis(dim.line))
-				Some(new sw.HorizontalLineDim(dimId(dim), dim.value,
-					origin, convPoint(dim.point)))
+				Some(new sw.HorizontalLineDim(dimId(dim), dim.value, convDimPoint(dim.loc),
+				    origin, convPoint(dim.point)))
 			else
 				None
 
@@ -311,6 +366,11 @@ class DefaultConversion(prosec:Pro2D) extends OneToOneConv
 		  }
 		  (id, index+1)
 		}
+		case proe.Circle(id, _, _) => (id, 1)
+		case proe.Arc(id, center, _, _, _, start, _) => 
+		  	if(center == point) (id, 1)
+		  	else if(start == point) (id, 2)
+		  	else (id, 3)
 	}
 	
 	def dimId(dim:proe.Dimension) = "D" + dim.id
